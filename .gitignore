@@ -17,3 +17,23 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+.idea/dataSources.local.xml
+
+.idea/dataSources.xml
+
+.idea/dataSources/c96073ae-0ff9-4334-8afb-fb61f69b532a.xml
+
+.idea/encodings.xml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/php.xml
+
+.idea/sandbox_simgame.iml
+
+.idea/vcs.xml
+
+.idea/workspace.xml
