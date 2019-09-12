@@ -14,8 +14,12 @@
     </h3>
     <div>
         {% for ship in ships %}
-            <div>{{ ship.name }} - {{ ship.price }}€ - {{  ship.type  }} - {{  ship.taille }}m</div>
-            <img src="https://img-3.journaldesfemmes.fr/Owe3SVhf11ttaIsL7m4-hn_o42I=/750x/smart/d3418f03095647149387f0ebb1a692d8/recipe-jdf/10025759.jpg">
+            <a href="{{ path('choose_ship', {id: ship.id}) }}">
+                <p>
+                    {{ ship.name }} - {{ ship.price }}€ - {{  ship.type  }} - {{  ship.taille }}m
+                    <img src="https://img-3.journaldesfemmes.fr/Owe3SVhf11ttaIsL7m4-hn_o42I=/750x/smart/d3418f03095647149387f0ebb1a692d8/recipe-jdf/10025759.jpg">
+                </p>
+            </a>
         {% endfor %}
     </div>
 </div>

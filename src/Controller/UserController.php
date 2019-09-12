@@ -45,4 +45,18 @@ class UserController extends AbstractController
             'users' => $users
         ]);
     }
+
+    /**
+     * @Route("/user/ship", name="user_ship")
+     */
+    public function ship()
+    {
+        $user = $this->getDoctrine()->getRepository(User::class)->findAll()[0];
+        $ship = $user->getShip();
+
+        return $this->render('user/ship.html.twig', [
+            'controller_name' => 'UserController',
+            'ship' => $ship
+        ]);
+    }
 }

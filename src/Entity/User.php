@@ -31,6 +31,11 @@ class User
      */
     private $email;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ship")
+     */
+    private $ship;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class User
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getShip(): ?Ship
+    {
+        return $this->ship;
+    }
+
+    public function setShip(?Ship $ship): self
+    {
+        $this->ship = $ship;
 
         return $this;
     }

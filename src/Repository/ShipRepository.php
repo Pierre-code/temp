@@ -18,7 +18,13 @@ class ShipRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Ship::class);
     }
-
+/*
+    public function getFirst() {
+        return $this->createQueryBuilder('s')
+            ->getQuery()
+            ->getFirstResult();
+    }
+*/
     // /**
     //  * @return Ship[] Returns an array of Ship objects
     //  */
