@@ -9,20 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/vagrant/code/src/Controller/ShipController.php'|file_link(0) }}">src/Controller/ShipController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/vagrant/code/templates/ship/index.html.twig'|file_link(0) }}">templates/ship/index.html.twig</a></code></li>
-    </ul>
-
     <h3>
         Liste des vaisseaux
     </h3>
     <div>
         {% for ship in ships %}
             <div>{{ ship.name }} - {{ ship.price }}€ - {{  ship.type  }} - {{  ship.taille }}m</div>
+            <img src="https://img-3.journaldesfemmes.fr/Owe3SVhf11ttaIsL7m4-hn_o42I=/750x/smart/d3418f03095647149387f0ebb1a692d8/recipe-jdf/10025759.jpg">
         {% endfor %}
     </div>
 </div>
