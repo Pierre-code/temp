@@ -16,5 +16,14 @@
         <li>Your controller at <code><a href="{{ '/home/vagrant/code/src/Controller/ShipController.php'|file_link(0) }}">src/Controller/ShipController.php</a></code></li>
         <li>Your template at <code><a href="{{ '/home/vagrant/code/templates/ship/index.html.twig'|file_link(0) }}">templates/ship/index.html.twig</a></code></li>
     </ul>
+
+    <h3>
+        Liste des vaisseaux
+    </h3>
+    <div>
+        {% for ship in ships %}
+            <div>{{ ship.name }} - {{ ship.price }}€ - {{  ship.type  }} - {{  ship.taille }}m</div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
