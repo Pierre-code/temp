@@ -14,7 +14,8 @@
         Votre vaisseau, maître !
     </h3>
     <div>
-        {{ ship.name }}
+        {{ ship.name }} - {{ ship.price }}€ - {{  ship.type  }} - {{  ship.taille }}m
     </div>
+    <a href="{{ path('user.ship.edit')}}">Modifier</a>
 </div>
 {% endblock %}
