@@ -19,31 +19,28 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/create", name="create_user")
+     * @Route("/initialisation", name="user.initialisation", methods={"GET","POST"})
      */
-    public function create_user()
+    public function initialisation()
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        $entityManager = $this->getDoctrine()->getManager();
 
-        $user = new User();
-        $user->setName('Richard Parker');
-        $user->setNote(20.0);
+        // TODO - Adapter le code ci-dessous pour qu'il puisse afficher le formulaire d'enregistrement d'utilisateur et le traiter
 
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($user);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
-
-        $users = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findAll();
-
-        return $this->render('user/create.html.twig', [
-            'controller_name' => 'UserController',
-            'users' => $users
-        ]);
+        // TODO - Créer le formulaire UserForm pour saisir un username (php bin/console make:form)
+        /*
+            $user = new User();
+            $form = $this->createForm(UserType::class, $user);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
+                TODO - Rediriger vers la route /ship
+                return $this->redirectToRoute('user');
+            }
+            return $this->render('user/index.html.twig', [
+                'cannon' => $cannon,
+                'form' => $form->createView(),
+            ]);
+        */
     }
 
     /**
@@ -53,6 +50,11 @@ class UserController extends AbstractController
     {
         $user = $this->getDoctrine()->getRepository(User::class)->findAll()[0];
         $ship = $user->getShip();
+
+        /*
+         * TODO - Récupérer les canons associés au vaisseau et les stocker dans une variable $canons
+         * Utiliser la méthode Ship::getCannons()
+         * */
 
         return $this->render('user/ship.html.twig', [
             'controller_name' => 'UserController',

@@ -23,6 +23,8 @@ class AppFixtures extends Fixture
             $manager->persist($ship);
         }
 
+        /* TODO - Créer 5 canons, et attribuer 3 canons au vaisseau au hasard */
+
         $manager->flush();
     }
 }

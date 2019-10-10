@@ -9,12 +9,23 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Mon vaisseau</h1> <!-- TODO - Ajouter un style font-size: 50px, et color: red-->
     <h3>
         Votre vaisseau, maître !
+        <!-- TODO - border: dashed, 4px, #0000FF -->
     </h3>
+    <p>
+        Votre aventure commence ici, voici votre vaisseau, il manque quelques détails comme le <b>name</b>,
+        le <b>type</b>, et la <b>taille</b>...
+        Modifier le fichier `/templates/user/ship.html.twig` pour afficher ces propriétés.
+        Exemple : Pour afficher le nom, écrire `{{ship.name}}`
+    </p>
     <div>
-        {{ ship.name }}
+        {{ ship.price }}
     </div>
+    <!--
+        TODO - Ici : Créer une structure IF qui contrôle la taille du vaisseau. Si le vaisseau est
+        plus grand que 100m, afficher "ça c'est du grand vaisseau !", sinon, afficher "ça c'est du mini vaisseau !"
+    -->
 </div>
 {% endblock %}

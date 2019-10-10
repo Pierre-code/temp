@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Ship;
 use App\Entity\User;
-use phpDocumentor\Reflection\Types\Integer;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,7 +36,7 @@ class ShipController extends AbstractController
         $ship = $this->getDoctrine()->getRepository(Ship::class)->find($id);
         if (!$ship) {
             return new Response(
-                '<html><body>Erreur, le ship'. $id .' n\'existe pas. </body></html>'
+                '<html lang="fr_FR"><body>Erreur, le ship'. $id .' n\'existe pas. </body></html>'
             );
         }
         $user = $this->getDoctrine()->getRepository(User::class)->findAll()[0];
@@ -49,6 +47,6 @@ class ShipController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        return $this->redirectToRoute('user_ship');
+        return $this->redirectToRoute('user_ship', ['message' => 'Vous avez choisi le bon vaisseau, amigo !']);
     }
 }
