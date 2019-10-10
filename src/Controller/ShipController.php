@@ -4,21 +4,42 @@ namespace App\Controller;
 
 use App\Entity\Ship;
 use App\Entity\User;
+use App\Repository\ShipRepository;
+use App\Repository\UserRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ShipController extends AbstractController
 {
+    private $repository;
+    /**
+     * @var ObjectManager
+     */
+    private $em;
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
+
+    /**
+     * ShipController constructor.
+     * @param ShipRepository $repository
+     */
+    public function __construct(ShipRepository $repository, ObjectManager $em, UserRepository $userRepository)
+    {
+        $this->repository = $repository;
+        $this->em = $em;
+        $this->userRepository = $userRepository;
+    }
+
     /**
      * @Route("/ship", name="ship")
      */
     public function index()
     {
-        $ships = $this->getDoctrine()
-            ->getRepository(Ship::class)
-            ->findAll();
-
+        $ships = $this->repository->findAllShips();
 
         return $this->render('ship/index.html.twig', [
             'controller_name' => 'ShipController',
@@ -28,24 +49,21 @@ class ShipController extends AbstractController
 
     /**
      * @Route("/ship/choose/{id}", methods={"GET"}, name="choose_ship")
-     * @param Int $id
-     * @return Response|\Symfony\Component\HttpFoundation\RedirectResponse
+     * @param Ship $ship
+     * @return Response
      */
-    public function choose(Int $id)
+    public function choose(Ship $ship)
     {
-        $ship = $this->getDoctrine()->getRepository(Ship::class)->find($id);
         if (!$ship) {
             return new Response(
                 '<html lang="fr_FR"><body>Erreur, le ship'. $id .' n\'existe pas. </body></html>'
             );
         }
-        $user = $this->getDoctrine()->getRepository(User::class)->findAll()[0];
+        $user = $this->userRepository->findAll()[0];
         $user->setShip($ship);
-
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($ship);
-        $entityManager->persist($user);
-        $entityManager->flush();
+        $this->em->persist($ship);
+        $this->em->persist($user);
+        $this->em->flush();
 
         return $this->redirectToRoute('user_ship', ['message' => 'Vous avez choisi le bon vaisseau, amigo !']);
     }
