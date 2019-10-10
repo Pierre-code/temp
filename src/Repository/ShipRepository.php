@@ -18,6 +18,14 @@ class ShipRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Ship::class);
     }
+
+    public function findAllShips() {
+        return $this->createQueryBuilder('ship')
+            ->select('ship.id', 'ship.name', 'ship.price', 'ship.type', 'ship.taille')
+            ->getQuery()
+            ->setMaxResults(1)
+            ->getResult();
+    }
 /*
     public function getFirst() {
         return $this->createQueryBuilder('s')
