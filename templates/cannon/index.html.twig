@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cannon index{% endblock %}
+
+{% block body %}
+    <h1>Cannon index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Power</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cannon in cannons %}
+            <tr>
+                <td>{{ cannon.id }}</td>
+                <td>{{ cannon.name }}</td>
+                <td>{{ cannon.power }}</td>
+                <td>
+                    <a href="{{ path('cannon_show', {'id': cannon.id}) }}">show</a>
+                    <a href="{{ path('cannon_edit', {'id': cannon.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('cannon_new') }}">Create new</a>
+{% endblock %}

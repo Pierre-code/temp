@@ -20,12 +20,13 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function findFirst(): User
+    public function findFirst(): ?User
     {
-        return $this->createQueryBuilder('user')
+        $user = $this->createQueryBuilder('user')
             ->getQuery()
             ->setMaxResults(1)
-            ->getResult()[0];
+            ->getResult();
+        return $user ? $user[0] : null;
     }
 
     // /**

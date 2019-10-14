@@ -26,6 +26,8 @@ class ShipController extends AbstractController
     /**
      * ShipController constructor.
      * @param ShipRepository $repository
+     * @param ObjectManager $em
+     * @param UserRepository $userRepository
      */
     public function __construct(ShipRepository $repository, ObjectManager $em, UserRepository $userRepository)
     {

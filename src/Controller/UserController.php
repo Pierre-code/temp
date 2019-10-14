@@ -4,11 +4,12 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ShipType;
+use App\Form\UserType;
 use App\Repository\UserRepository;
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
@@ -23,7 +24,7 @@ class UserController extends AbstractController
      */
     private $entityManager;
 
-    public function __construct(UserRepository $userRepository, ObjectManager $entityManager)
+    public function __construct(UserRepository $userRepository, EntityManagerInterface $entityManager)
     {
         $this->userRepository = $userRepository;
         $this->entityManager = $entityManager;
@@ -46,27 +47,28 @@ class UserController extends AbstractController
 
     /**
      * @Route("/initialisation", name="user.initialisation", methods={"GET","POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function initialisation()
+    public function initialisation(Request $request)
     {
 
         // TODO - Adapter le code ci-dessous pour qu'il puisse afficher le formulaire d'enregistrement d'utilisateur et le traiter
 
-        // TODO - Créer le formulaire UserForm pour saisir un username (php bin/console make:form)
-        /*
-            $user = new User();
-            $form = $this->createForm(UserType::class, $user);
-            $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $this->getDoctrine()->getManager()->flush();
-                TODO - Rediriger vers la route /ship
-                return $this->redirectToRoute('user');
-            }
-            return $this->render('user/index.html.twig', [
-                'cannon' => $cannon,
-                'form' => $form->createView(),
-            ]);
-        */
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->entityManager->persist($user);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('ship');
+        }
+
+        return $this->render('user/index.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
@@ -75,6 +77,9 @@ class UserController extends AbstractController
     public function ship()
     {
         $user = $this->userRepository->findFirst();
+        if (!$user) {
+            return new Response('Pas d\'user');
+        }
         $ship = $user->getShip();
 
         /*

@@ -23,7 +23,7 @@ class ShipRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('ship')
             ->select('ship.id', 'ship.name', 'ship.price', 'ship.type', 'ship.taille')
             ->getQuery()
-            ->setMaxResults(1)
+            ->setMaxResults(3)
             ->getResult();
     }
 /*

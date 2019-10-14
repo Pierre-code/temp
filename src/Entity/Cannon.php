@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CannonRepository")
  */
-class User
+class Cannon
 {
     /**
      * @ORM\Id()
@@ -22,12 +22,12 @@ class User
     private $name;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="integer")
      */
-    private $note;
+    private $power;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ship")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ship", inversedBy="cannons")
      */
     private $ship;
 
@@ -48,26 +48,14 @@ class User
         return $this;
     }
 
-    public function getNote(): ?float
+    public function getPower(): ?int
     {
-        return $this->note;
+        return $this->power;
     }
 
-    public function setNote(float $note): self
+    public function setPower(int $power): self
     {
-        $this->note = $note;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(?string $email): self
-    {
-        $this->email = $email;
+        $this->power = $power;
 
         return $this;
     }
