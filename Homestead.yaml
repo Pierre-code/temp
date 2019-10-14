@@ -10,7 +10,7 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
-    - map: ~/Documents/sandbox_simgame
+    - map: C:\Users\nicol\OneDrive\Documents\Institut G4\ING3\Projets\SimGame\sandbox_simgame
       to: /home/vagrant/code
 
 sites:
