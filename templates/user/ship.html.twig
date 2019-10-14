@@ -6,27 +6,69 @@
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    h1 {
+        font-size: 50px;
+        color: red;
+        background: url({{ asset('images/nyan.gif') }});
+    }
+
+    h3 {
+        text-decoration: underline;
+    }
+
+    .h3special {
+        border: dashed 4px #0000FF
+    }
+
+    .exercice {
+        border-bottom: 2px dashed #5a6268;
+        margin: 16px 0;
+    }
 </style>
 
-<div class="example-wrapper">
-    <h1>Mon vaisseau</h1> <!-- TODO - Ajouter un style font-size: 50px, et color: red-->
-    <h3>
-        Votre vaisseau, maître !
-        <!-- TODO - border: dashed, 4px, #0000FF -->
-    </h3>
-    <p>
-        Votre aventure commence ici, voici votre vaisseau, il manque quelques détails comme le <b>name</b>,
-        le <b>type</b>, et la <b>taille</b>...
-        Modifier le fichier `/templates/user/ship.html.twig` pour afficher ces propriétés.
-        Exemple : Pour afficher le nom, écrire `{{ship.name}}`
-    </p>
-    <div>
-        {{ ship.price }}
+    <div class="example-wrapper">
+        <div class="exercice">
+            <h2>Exercice : Remettre les pendules à l'heure</h2>
+            <h1>Mon vaisseau</h1>
+            <h3 class="h3special">
+                Votre vaisseau, maître !
+            </h3>
+            <h3>Je suis un h3 sans border MOI !</h3>
+        </div>
+        <div class="exercice">
+            <h2>Exercice : Afficher les bonnes informations</h2>
+            <p>
+                Voici votre vaisseau, il manque quelques détails comme le <b>name</b>,
+                le <b>type</b>, et la <b>taille</b>...
+                Modifier le fichier `/templates/user/ship.html.twig` pour afficher ces propriétés.
+                Exemple : Pour afficher le nom, écrire  { { ship.name } }  en retirant les espaces
+            </p>
+            <div>
+                {{ ship.price }}
+            </div>
+            {% if ship.taille > 100 %}
+                ça c'est du grand vaisseau !
+            {% else %}
+                ça c'est du mini vaisseau !
+            {% endif %}
+            <a href="{{ path('user.ship.edit')}}">Modifier</a>
+        </div>
+        <div class="exercice">
+            <h2>Exercice : Afficher les bonnes informations 2</h2>
+            <p>
+               Ce vaisseau appartient à quelqu'un. Afficher le contenu de user.name mais en ayant pris soin de vous l'être
+                envoyé depuis le contrôleur !
+            </p>
+            <div>
+                "Nom de l'utilisateur ici" Aime les frites
+            </div>
+            <div>
+                <p>Afficher tous les canons qui appartienent au vaisseau dans une boucle for</p>
+            </div>
+        </div>
     </div>
-    <!--
-        TODO - Ici : Créer une structure IF qui contrôle la taille du vaisseau. Si le vaisseau est
-        plus grand que 100m, afficher "ça c'est du grand vaisseau !", sinon, afficher "ça c'est du mini vaisseau !"
-    -->
-    <a href="{{ path('user.ship.edit')}}">Modifier</a>
-</div>
+    <div class="ship-control-room">
+
+    </div>
 {% endblock %}

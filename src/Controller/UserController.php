@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\ShipType;
 use App\Form\UserType;
+use App\Repository\CannonRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -83,9 +84,13 @@ class UserController extends AbstractController
         $ship = $user->getShip();
 
         /*
-         * TODO - Récupérer les canons associés au vaisseau et les stocker dans une variable $canons
+         * Récupérer les canons associés au vaisseau et les stocker dans une variable $canons
          * Utiliser la méthode Ship::getCannons()
          * */
+
+        /**
+         * Envoyer le paramètre $user et $cannons à la vue
+         */
 
         return $this->render('user/ship.html.twig', [
             'controller_name' => 'UserController',

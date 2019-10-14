@@ -61,9 +61,8 @@ class ShipController extends AbstractController
                 '<html lang="fr_FR"><body>Erreur, le ship'. $id .' n\'existe pas. </body></html>'
             );
         }
-        $user = $this->userRepository->findAll()[0];
+        $user = $this->userRepository->findFirst();
         $user->setShip($ship);
-        $this->em->persist($ship);
         $this->em->persist($user);
         $this->em->flush();
 
