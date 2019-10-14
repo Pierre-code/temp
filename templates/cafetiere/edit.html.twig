@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Cafetiere{% endblock %}
+
+{% block body %}
+    <h1>Edit Cafetiere</h1>
+
+    {{ include('cafetiere/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('cafetiere_index') }}">back to list</a>
+
+    {{ include('cafetiere/_delete_form.html.twig') }}
+{% endblock %}
