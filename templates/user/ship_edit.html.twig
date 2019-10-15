@@ -4,8 +4,6 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 
     .help-text {
         font-size: .75em;
@@ -16,59 +14,66 @@
         border: solid;
         height: 400px;
         text-align: center;
-        position: relative;
     }
     .positionning-block-images {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
     }
     .positionning-block-image {
         height: 100px;
         width: 100px;
         margin: 0 16px;
+        position: relative;
     }
     .move-me {
         position: absolute;
         height: 60px;
         width: 60px;
-        top: 244px;
-        left: 308px;
-        background-color: #00217d;
+        left: 60px;
+        top: 80px;
+        z-index: 2;
+        background-color: #0098b2;
     }
 
-    .exercice {
-        border-bottom: 2px dashed #5a6268;
+    .card {
+        padding: 16px;
         margin: 16px 0;
     }
 </style>
 
-<div class="example-wrapper">
+<div class="container">
     <h3>
         Editer votre vaisseau, maître !
     </h3>
-    <div class="exercice">
+    <div class="card">
         <h2>Exercice : Ajouter des champs d'édition pour le vaisseau </h2>
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
+        {{ form_start(form)}}
+            <div class="form-group">
+                {{ form_row(form.name) }}
+                {{ form_row(form.price) }}
+                {{ form_row(form.type) }}
+            </div>
         <button class="btn btn-primary">Editer</button>
         {{ form_end(form) }}
+
         <p>
             1. - Modifier le fichier /Form/ShipType.php pour permettre d'éditer le champ, 'taille'.
-
+        </p>
+        <p>
             2. - Modifier les règles de validation du nom pour qu'elles n'acceptent que les noms dont:
             La longueur minimale est 6
             La longueur maximale est 16
         </p>
     </div>
-    <div class="positionning-block exercice">
+    <div class="positionning-block card">
         <h2>Exercice : Positionnement</h2>
-        <p>CSS : Modifier les règles CSS du bloc de classe "move-me" de manière à cacher le derrière du singe</p>
-        <p><i>Astuce : Utiliser les propriétés top, left, right, bottom pour le positionnement, et height, width pour la taille</i></p>
-        <div class="move-me">Move me !</div>
         <div class="positionning-block-images">
+            <div class="move-me">Move me !</div>
             <img class="positionning-block-image" src={{asset('images/singe.jpeg')}} >
             <img class="positionning-block-image" src={{asset('images/singe_2.jpeg')}} >
         </div>
+        <p>CSS : Modifier les règles CSS du bloc de classe "move-me" de manière à cacher le derrière du singe</p>
+        <p><i>Astuce : Utiliser les propriétés top, left, right, bottom pour le positionnement, et height, width pour la taille</i></p>
     </div>
 </div>
 {% endblock %}
