@@ -21,7 +21,7 @@ class ShipRepository extends ServiceEntityRepository
 
     public function findAllShips() {
         return $this->createQueryBuilder('ship')
-            ->select('ship.id', 'ship.name', 'ship.price', 'ship.type', 'ship.taille')
+            ->select('ship.id', 'ship.name', 'ship.price', 'ship.type', 'ship.taille, ship.image')
             ->getQuery()
             ->setMaxResults(3)
             ->getResult();

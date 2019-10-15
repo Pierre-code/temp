@@ -42,10 +42,24 @@ class ShipController extends AbstractController
     public function index()
     {
         $ships = $this->repository->findAllShips();
+        $user = $this->userRepository->findFirst();
+
+        if (!$user) {
+            return new Response(
+                '<html lang="fr_FR">
+                            <body>
+                                Erreur, l\'utilisateur n\'existe pas encore, il faut d\'abord le créer.
+                                Patience, vous pourrez bientôt choisir votre vaisseau, mais en attendant, 
+                                rendez-vous sur <a href="/initialisation">cette page</a>. 
+                            </body>
+                        </html>'
+            );
+        }
 
         return $this->render('ship/index.html.twig', [
             'controller_name' => 'ShipController',
-            'ships' => $ships
+            'ships' => $ships,
+            'user' => $user,
         ]);
     }
 

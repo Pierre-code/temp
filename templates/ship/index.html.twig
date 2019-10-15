@@ -4,22 +4,31 @@
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .container {
+        padding: 16px;
+    }
+    .card {
+        margin: 8px;
+        padding: 16px;
+    }
 </style>
 
-<div class="example-wrapper">
+<div class="container">
     <h3>
         Liste des vaisseaux
     </h3>
-    <div>
+    <div class="alert alert-light">Bienvenue, {{ user.name }} ! Il est temps de choisir un vaisseau maintenant. Cliquer sur un des vaisseaux pour l'obtenir !</div>
+    <div class="row">
         {% for ship in ships %}
-            <a href="{{ path('choose_ship', {id: ship.id}) }}">
-                <p>
-                    {{ ship.name }} - {{ ship.price }}€ - {{  ship.type  }} - {{  ship.taille }}m
-                    <img src="https://img-3.journaldesfemmes.fr/Owe3SVhf11ttaIsL7m4-hn_o42I=/750x/smart/d3418f03095647149387f0ebb1a692d8/recipe-jdf/10025759.jpg">
-                </p>
-            </a>
+            <div class="card shadow col-sm">
+                <a href="{{ path('choose_ship', {id: ship.id}) }}">
+                        {{ ship.name }}
+                        {{ ship.price }}€
+                        {{ ship.taille }}m
+                        <img class= "img-thumbnail" src="{{ ship.image }}">
+                        <span class="badge badge-primary">{{  ship.type  }}</span>
+                </a>
+            </div>
         {% endfor %}
     </div>
 </div>
