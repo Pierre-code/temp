@@ -13,9 +13,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Ship
 {
     const TYPE = [
-        0 => "Destroyer",
-        1 => "Recon",
-        2 => "Cargo",
+        "Destroyer",
+        "Recon",
+        "Cargo",
     ];
 
     /**

@@ -25,7 +25,7 @@ class ShipType extends AbstractType
                 'help' => 'Le nom de votre vaisseau',
             ])
             ->add('price')
-            ->add('type', ChoiceType::class, ['choices' => [0 => "Destroyer", 1 => "Recon", 2 => "Cargo"]])
+            ->add('type', ChoiceType::class, ['choices' => $this->types()])
         ;
     }
 
@@ -34,5 +34,19 @@ class ShipType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Ship::class,
         ]);
+    }
+
+    /**
+     *
+     */
+    private function types(): array
+    {
+        $choices = Ship::TYPE;
+        $output = [];
+        foreach($choices as $k => $v) {
+            $output[$v] = $v;
+        }
+
+        return $output;
     }
 }
