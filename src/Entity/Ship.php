@@ -12,6 +12,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Ship
 {
+    const TYPE = [
+        0 => "Destroyer",
+        1 => "Recon",
+        2 => "Cargo",
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -33,6 +39,7 @@ class Ship
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Choice({"Destroyer", "Recon", "Cargo"})
      */
     private $type;
 
@@ -136,21 +143,6 @@ class Ship
             $cannon->setShip($this);
         }
 
-        return $this;
-    }
-
-    public function removeCannon(Cannon $cannon): self
-    {
-        // Ce code sera à compléter par l'apprenant
-        /*
-        if ($this->cannons->contains($cannon)) {
-            $this->cannons->removeElement($cannon);
-            // set the owning side to null (unless already changed)
-            if ($cannon->getShip() === $this) {
-                $cannon->setShip(null);
-            }
-        }
-        */
         return $this;
     }
 }
