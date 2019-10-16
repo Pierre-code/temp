@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cafetiere{% endblock %}
+
+{% block body %}
+    <h1>Create new Cafetiere</h1>
+
+    {{ include('cafetiere/_form.html.twig') }}
+
+    <a href="{{ path('cafetiere_index') }}">back to list</a>
+{% endblock %}
