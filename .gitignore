@@ -31,4 +31,4 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-homestead.yaml
+Homestead.yaml
