@@ -1,0 +1,46 @@
+// =============================================================================
+// Init
+// =============================================================================
+
+// the ~ allows you to reference things in node_modules
+@import "~normalize.css/normalize";
+@import "~bootstrap/scss/bootstrap";
+
+
+// Re-initialization
+// ===================================================================
+
+body {
+    // Needed for footer fixed to bottom
+    // #content {
+    //   flex: 1 0 auto;
+    // }
+    * {
+      box-sizing: border-box;
+    }
+  
+    p {
+      margin: 0 0 15px;
+    }
+  
+    a:before, a:after {
+      display: inline-block;
+      text-decoration: none;
+    }
+  
+    ul {
+      padding: 0;
+      margin: 0 0 0 15px;
+    }
+  
+    input {
+      border: none;
+    }
+  
+    button {
+      border: none;
+    }
+  }
+  
+  
+  

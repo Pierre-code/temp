@@ -1,14 +1,5 @@
 ###> PhpStorm IDE ###
-.idea/dataSources.local.xml
-.idea/dataSources.xml
-.idea/dataSources/c96073ae-0ff9-4334-8afb-fb61f69b532a.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/php.xml
-.idea/sandbox_simgame.iml
-.idea/vcs.xml
-.idea/workspace.xml
+/.idea/watcherTasks.xml
 ###< PhpStorm IDE ###
 
 ###> symfony/framework-bundle ###
@@ -20,6 +11,7 @@
 /vendor/
 /.vagrant/
 /node_modules/
+/public/build/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
