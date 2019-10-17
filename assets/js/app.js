@@ -1,6 +1,3 @@
-// Javascript
-require('./heater.js');
-
 // SCSS
 require("../sass/app.scss");
 
@@ -14,13 +11,13 @@ require('../sass/0-basics/3-small-elements.scss');
 require('../sass/1-navs/footer.scss');
 require('../sass/1-navs/menu.scss');
 require('../sass/1-navs/reassurances.scss');
-// require('../sass/2-modules/xxx.scss');
-// require('../sass/3-pages/xxx.scss');
+require('../sass/3-pages/homepage.scss');
 
 // =============================================================================
 // Require all js files
 // =============================================================================
 require('./partials/basics.js');
+require('./heater.js');
 
 // =============================================================================
 // Require dependencies
