@@ -3,32 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Ship;
-use App\Entity\User;
 use App\Repository\ShipRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class ShipController extends AbstractController
 {
     private $repository;
-    /**
-     * @var ObjectManager
-     */
     private $em;
-    /**
-     * @var UserRepository
-     */
     private $userRepository;
 
-    /**
-     * ShipController constructor.
-     * @param ShipRepository $repository
-     * @param ObjectManager $em
-     * @param UserRepository $userRepository
-     */
     public function __construct(ShipRepository $repository, ObjectManager $em, UserRepository $userRepository)
     {
         $this->repository = $repository;
@@ -36,9 +22,6 @@ class ShipController extends AbstractController
         $this->userRepository = $userRepository;
     }
 
-    /**
-     * @Route("/ship", name="ship")
-     */
     public function index()
     {
         $ships = $this->repository->findAllShips();
@@ -63,11 +46,6 @@ class ShipController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/ship/choose/{id}", methods={"GET"}, name="choose_ship")
-     * @param Ship $ship
-     * @return Response
-     */
     public function choose(Ship $ship)
     {
         if (!$ship) {
