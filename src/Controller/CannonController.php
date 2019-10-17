@@ -8,18 +8,9 @@ use App\Repository\CannonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/cannon")
- */
 class CannonController extends AbstractController
 {
-    /**
-     * @Route("/", name="cannon_index", methods={"GET"})
-     * @param CannonRepository $cannonRepository
-     * @return Response
-     */
     public function index(CannonRepository $cannonRepository): Response
     {
         return $this->render('cannon/index.html.twig', [
@@ -27,9 +18,6 @@ class CannonController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="cannon_new", methods={"GET","POST"})
-     */
     public function new(Request $request): Response
     {
         $cannon = new Cannon();
@@ -50,9 +38,6 @@ class CannonController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="cannon_show", methods={"GET"})
-     */
     public function show(Cannon $cannon): Response
     {
         return $this->render('cannon/show.html.twig', [
@@ -60,9 +45,6 @@ class CannonController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="cannon_edit", methods={"GET","POST"})
-     */
     public function edit(Request $request, Cannon $cannon): Response
     {
         $form = $this->createForm(CannonType::class, $cannon);
@@ -80,9 +62,6 @@ class CannonController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="cannon_delete", methods={"DELETE"})
-     */
     public function delete(Request $request, Cannon $cannon): Response
     {
         if ($this->isCsrfTokenValid('delete'.$cannon->getId(), $request->request->get('_token'))) {
