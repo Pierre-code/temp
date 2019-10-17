@@ -13,23 +13,21 @@
     }
 </style>
 
-<div class="container">
-    <h3>
-        Liste des vaisseaux
-    </h3>
-    <div class="alert alert-light">Bienvenue, {{ user.name }} ! Il est temps de choisir un vaisseau maintenant. Cliquer sur un des vaisseaux pour l'obtenir !</div>
-    <div class="row">
-        {% for ship in ships %}
-            <div class="card shadow col-sm">
-                <a href="{{ path('choose_ship', {id: ship.id}) }}">
-                        {{ ship.name }}
-                        {{ ship.price }}€
-                        {{ ship.taille }}m
-                        <img class= "img-thumbnail" src="{{ ship.image }}">
-                        <span class="badge badge-primary">{{  ship.type  }}</span>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
+<h3>
+    Liste des vaisseaux
+</h3>
+<div class="alert alert-light">Bienvenue, {{ user.name }} ! Il est temps de choisir un vaisseau maintenant. Cliquer sur un des vaisseaux pour l'obtenir !</div>
+<div class="row">
+    {% for ship in ships %}
+        <div class="card shadow col-sm">
+            <a href="{{ path('choose_ship', {id: ship.id}) }}">
+                    {{ ship.name }}
+                    {{ ship.price }}€
+                    {{ ship.taille }}m
+                    <img class= "img-thumbnail" src="{{ ship.image }}">
+                    <span class="badge badge-primary">{{  ship.type  }}</span>
+            </a>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
