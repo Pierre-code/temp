@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HeatingController!{% endblock %}
+
+{% block body %}
+<style>
+    .heating-room {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img {
+        width: 200px;
+        height: 200px;
+        margin: 0 16px;
+    }
+</style>
+
+<div class="container">
+    <div class="card">
+        <p id="summary" class="alert alert-light">
+            Ici nous allons travailler l'inclusion des pages.
+            Cet homme a un peu froid, fouille le dossier /templates pour lui trouver un chauffage !
+        </p>
+        <p>
+            <a href="https://twig.symfony.com/doc/2.x/tags/include.html">Besoin d'aide ? Par ici !</a>
+        </p>
+    </div>
+    <div class="heating-room">
+        {% include '/heating/heating.html.twig' %}
+        <img id="man" class="img-thumbnail man" src="{{asset('images/chauffage/froid.jpeg')}}">
+        {% include 'heating/fan.html.twig' %}
+    </div>
+</div>
+
+<script>
+    // NE PAS TOUCHER SINON VOUS ALLEZ AVOIR DES BRICOLES !
+    if (document.getElementById("heat-machine") !== null) {
+      let man = document.getElementById("man")
+      man.src = "{{asset('images/chauffage/chaud.jpg')}}"
+      let summary = document.getElementById("summary")
+        summary.innerText = "Bien joué, il fait encore un peu chaud, ajoute le ventilateur en face de l'homme maintenant ! Fouille dans le dossier /templates"
+        if (document.getElementById("fan") !== null) {
+            man.src = "{{asset('images/chauffage/ok.jpg')}}"
+            summary.innerText = "Bien joué, on sait maintenant inclure des partials !"
+        }
+    }
+</script>
+{% endblock %}
