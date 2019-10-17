@@ -8,16 +8,9 @@ use App\Repository\CafetiereRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/cafetiere")
- */
 class CafetiereController extends AbstractController
 {
-    /**
-     * @Route("/", name="cafetiere_index", methods={"GET"})
-     */
     public function index(CafetiereRepository $cafetiereRepository): Response
     {
         /**
@@ -26,9 +19,6 @@ class CafetiereController extends AbstractController
          */
     }
 
-    /**
-     * @Route("/new", name="cafetiere_new", methods={"GET","POST"})
-     */
     public function new(Request $request): Response
     {
         /** Créer une NOUVELLE variable $cafetiere correspond à l'entity "Cafetiere" */
@@ -53,9 +43,6 @@ class CafetiereController extends AbstractController
          */
     }
 
-    /**
-     * @Route("/{id}", name="cafetiere_show", methods={"GET"})
-     */
     public function show(Cafetiere $cafetiere): Response
     {
         /**
@@ -63,9 +50,6 @@ class CafetiereController extends AbstractController
          */
     }
 
-    /**
-     * @Route("/{id}/edit", name="cafetiere_edit", methods={"GET","POST"})
-     */
     public function edit(Request $request, Cafetiere $cafetiere): Response
     {
         /** Créer une variable formulaire qui a pour type la classe Cafetiere et qui récupère la variable
@@ -87,9 +71,6 @@ class CafetiereController extends AbstractController
          */
     }
 
-    /**
-     * @Route("/{id}", name="cafetiere_delete", methods={"DELETE"})
-     */
     public function delete(Request $request, Cafetiere $cafetiere): Response
     {
         /**
