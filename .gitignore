@@ -19,6 +19,7 @@
 /var/
 /vendor/
 /.vagrant/
+/node_modules/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
