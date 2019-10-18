@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 // src/DataFixtures/AppFixtures.php
-namespace App\DataFixtures;
+
 
 use App\Entity\Ship;
 use Doctrine\Bundle\FixturesBundle\Fixture;
