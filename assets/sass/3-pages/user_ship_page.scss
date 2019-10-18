@@ -1,0 +1,14 @@
+.user_ship_page {
+    .h3special {
+        border: dashed 4px #0000FF
+    }
+
+    &__ship {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        &_image {
+            margin: 1em 0;
+        }
+    }
+}

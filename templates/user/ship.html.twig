@@ -1,51 +1,120 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Votre vaisseau!{% endblock %}
 
 {% block body %}
 
-    <div class="example-wrapper">
-        <div class="exercice">
+    <div class="user_ship_page">
+        <div class="card">
+            <div class="alert alert-warning">
+                Oh naaaan, un petit malin est passé par là et a transformé toutes les
+                balises H1 pour y ajouter un Thor derrière...
+                Localiser où ce style est réglé et le corriger.
+                <ul>
+                    <li>
+                        Fouiller le fichier /assets/sass/bases/_small-elements.scss et modifier les règles CSS de la balise h1.
+                    </li>
+                    <li>
+                        Remplacer la propriété "background" pour y afficher <a href="https://media.giphy.com/media/l0Ex2403A1YqrKNQA/giphy.gif">cette image à la place</a>.
+                    </li>
+                    <li>
+                        Réduire la taille du titre et l'afficher en noir.
+                    </li>
+                    <li>
+                        Localiser le réglage de la classe "h3special" et retirer cette propriété border ridicule !
+                    </li>
+                </ul>
+            </div>
             <h2>Exercice : Remettre les pendules à l'heure</h2>
             <h1>Mon vaisseau</h1>
-            <h3 class="h3special">
+            <h3>
                 Votre vaisseau, maître !
             </h3>
-            <h3>Je suis un h3 sans border MOI !</h3>
+            <h3 class="h3special">Je suis un h3 sans border MOI ! Ma maman m'a dit que j'étais spécial !</h3>
         </div>
-        <div class="exercice">
+        <div class="card">
             <h2>Exercice : Afficher les bonnes informations</h2>
-            <p>
+            <div class="alert alert-warning">
                 Voici votre vaisseau, il manque quelques détails comme le <b>name</b>,
                 le <b>type</b>, et la <b>taille</b>...
-                Modifier le fichier `/templates/user/ship.html.twig` pour afficher ces propriétés.
                 Exemple : Pour afficher le nom, écrire  { { ship.name } }  en retirant les espaces
-            </p>
-            <div>
-                {{ ship.price }}
+                <ul>
+                    <li>
+                        Modifier le fichier `/templates/user/ship.html.twig` pour afficher les propriétés <b>name</b>,
+                        <b>type</b>, et <b>taille</b>
+                    </li>
+                </ul>
             </div>
-            {% if ship.taille > 100 %}
-                ça c'est du grand vaisseau !
-            {% else %}
-                ça c'est du mini vaisseau !
-            {% endif %}
-            <a href="{{ path('user_ship_edit')}}">Modifier</a>
+            <div class="user_ship_page__ship">
+                <img class="user_ship_page__ship_image" src="{{ ship.image }}">
+                <div class="user_ship_page__ship_info">
+                    Prix : {{ ship.price }}
+                </div>
+            </div>
+            <div class="alert alert-warning">
+                Ici nous allons voir les structures conditionnelles.
+                <a href="https://twig.symfony.com/doc/2.x/tags/if.html">Plus d'informations sur les structures conditionnelles ici</a>
+                <ul>
+                    <li>
+                        Si ship.taille > 100, afficher "ça c'est un grand vaisseau"
+                    </li>
+                    <li>
+                        Si ship.taille < 100, afficher "ça c'est un mini vaisseau amigo, avec une image de chat-botté"
+                    </li>
+                </ul>
+            </div>
+            <p class="alert alert-success">
+                {% if ship.taille > 100 %}
+                    ça c'est du grand vaisseau !
+                {% else %}
+                    ça c'est du mini vaisseau !
+                {% endif %}
+            </p>
+            <div class="row justify-content-center">
+                <a class="btn btn-primary col-8" href="{{ path('user_ship_edit')}}">Modifier</a>
+            </div>
         </div>
-        <div class="exercice">
+        <div class="card">
             <h2>Exercice : Afficher les bonnes informations 2</h2>
-            <p>
+            <p class="alert alert-warning">
                Ce vaisseau appartient à quelqu'un. Afficher le contenu de user.name mais en ayant pris soin de vous l'être
                 envoyé depuis le contrôleur !
+                Rappel : Le contrôleur doit envoyer un objet "user" qui contient l'utilisateur à qui appartient le vaisseau.
+                Allez voir dans le contrôleur /src/Controller/UserController::ship() et envoyer user à la vue en s'inspirant de la variable ship
             </p>
-            <div>
-                "Nom de l'utilisateur ici" Aime les frites
+            <div class="row">
+                <p class="col">
+                    "Nom de l'utilisateur ici" adore Symfony parce que c'est cool... Symfony ... wouhou...
+                </p>
+                {% if user is not defined %}
+                    <img src="{{ asset('images/symfony.jpg') }}" class="img-thumbnail col-3">
+                {% endif %}
+            </div>
+            <div class="alert-warning alert">
+                <h3>Défendez-vous contre les aliens !</h3>
+                <div>
+                    Le vaisseau dispose de canons qui lui sont assignés, il faut les récupérer en base de données pour
+                    les afficher !
+                    <ul>
+                        <li>
+                            Modifier le UserController.php dans la méthode ship() pour récupérer en base de données
+                            la liste des canons.
+                        </li>
+                        <li>
+                            Afficher la liste des canons dans une boucle for avec la variable ship.canons
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div>
-                <p>Afficher tous les canons qui appartienent au vaisseau dans une boucle for</p>
+                Hello, la liste des canons sera ici !
             </div>
         </div>
+        <div class="card">
+            <p class="alert alert-warning">Ce gars a froid, cliquez dessus pour le réchauffer, si vous voyez ce que je veux dire !</p>
+            <a class="hot-guy" href="{{ path('heating') }}">
+                <img style="width: 200px;" class="img-thumbnail" src="{{asset('images/chauffage/froid.jpeg')}}">
+            </a>
+        </div>
     </div>
-    <a class="hot-guy" href="{{ path('heating') }}">
-        <img class="img-thumbnail" src="{{asset('images/chauffage/froid.jpeg')}}">
-    </a>
 {% endblock %}
