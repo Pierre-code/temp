@@ -7,6 +7,8 @@ use App\Form\ShipType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,16 +24,22 @@ class UserController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    public function index()
+    public function index(Request $request, PaginatorInterface $paginator)
     {
+
         $users = $this->getDoctrine()
             ->getRepository(User::class)
             ->findAll();
-
-        return $this->render('user/create.html.twig', [
+        $list_users = $paginator->paginate(
+            $users, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            10 // Nombre de résultats par page
+        );
+        return $this->render('user/list.html.twig', [
             'controller_name' => 'UserController',
-            'users' => $users
+            'users' => $list_users
         ]);
+
     }
 
     public function initialisation(Request $request)
