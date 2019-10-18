@@ -60,7 +60,7 @@ cannon_delete:
 
 
 #heating
-heating_index:
+heating:
     path: /heating
     controller: App\Controller\HeatingController::index
     methods: [GET]
@@ -85,7 +85,7 @@ ship_index:
     methods: [GET]
 
 ship_choose:
-    path: /ship/choose/
+    path: /ship/choose/{id}
     controller: App\Controller\ShipController::choose
     methods: [GET]
 
@@ -101,8 +101,8 @@ user_ship:
     controller: App\Controller\UserController::ship
     methods: [GET]
 
-user_edit:
-    path: /user/ship/edit/{id}
+user_ship_edit:
+    path: /user/ship/edit
     controller: App\Controller\UserController::edit
     methods: [GET, POST]
 

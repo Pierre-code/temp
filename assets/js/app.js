@@ -12,7 +12,6 @@ require('../sass/1-navs/footer.scss');
 require('../sass/1-navs/menu.scss');
 require('../sass/1-navs/reassurances.scss');
 require('../sass/3-pages/homepage.scss');
-require('../sass/3-pages/planetspage.scss');
 
 // =============================================================================
 // Require dependencies

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ShipController!{% endblock %}
+{% block title %}Début des folies{% endblock %}
 
 {% block body %}
 <h3>
@@ -10,7 +10,7 @@
 <div class="row">
     {% for ship in ships %}
         <div class="card shadow col-sm">
-            <a href="{{ path('choose_ship', {id: ship.id}) }}">
+            <a href="{{ path('ship_choose', {id: ship.id}) }}">
                     {{ ship.name }}
                     {{ ship.price }}€
                     {{ ship.taille }}m
