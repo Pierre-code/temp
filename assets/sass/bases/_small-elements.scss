@@ -1,0 +1,56 @@
+// =============================================================================
+// SMALL ELEMENTS
+// 
+// Ce fichier regroupe tous les petis éléments utiles a travers tout le site,
+// avec leur style par défaut et leurs différentes variantes
+// liens, boutons, titres, sous-titres...
+// =============================================================================
+
+@import 'assets/sass/bases/variables' ;
+
+
+
+// Links
+// ===================================================================
+a {
+
+}
+
+
+
+// Buttons
+// ===================================================================
+@mixin btn-primary() {
+
+}
+
+.btn-primary {
+    @include btn-primary() ;
+}
+
+.btn-primary--modifier {
+    @include btn-primary() ;
+}
+
+@mixin btn-secondary() {
+
+}
+
+.btn-primary {
+    @include btn-secondary() ;
+}
+
+.btn-primary--modifier {
+    @include btn-secondary() ;
+}
+
+
+
+// Defaut typo
+// ===================================================================
+
+// Title
+
+// Subtitle
+
+// Basic text 
