@@ -105,3 +105,38 @@ user_edit:
     path: /user/ship/edit/{id}
     controller: App\Controller\UserController::edit
     methods: [GET, POST]
+
+
+#planet
+planet_index:
+    path: /planet
+    controller: App\Controller\PlanetController::index
+    methods: [GET]
+
+
+planet_create:
+    path: /planet/new
+    controller: App\Controller\PlanetController::new
+    methods: [GET, POST]
+
+
+planet_show:
+    path: /planet/show/{id}
+    controller: App\Controller\PlanetController::show
+    methods: [GET]
+
+
+planet_edit:
+    path: /planet/edit/{id}
+    controller: App\Controller\PlanetController::show
+    methods: [GET, POST]
+
+
+planet_delete:
+    path: /planet/delete/{id}
+    controller: App\Controller\PlanetController::delete
+
+planets_list:
+    path: /planets_list
+    controller: App\Controller\PlanetController::list
+    methods: [GET]
