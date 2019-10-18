@@ -36,6 +36,10 @@ class UserController extends AbstractController
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             10 // Nombre de résultats par page
         );
+
+        // créer une entité qui va rechercher un utilisateur spécifique
+
+
         return $this->render('user/list.html.twig', [
             'controller_name' => 'UserController',
             'users' => $list_users
