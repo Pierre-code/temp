@@ -1,5 +1,5 @@
 let fanImage = document.getElementById("fan-image");
-if (fanImage.offsetWidth >= 500) {
+if ( fanImage && fanImage.offsetWidth >= 500) {
   let summary = document.getElementById("summary");
   var inclinatorButton = document.createElement("BUTTON");   // Create a <button> element
   inclinatorButton.innerHTML = "Incliner";

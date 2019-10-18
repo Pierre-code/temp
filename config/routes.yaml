@@ -114,11 +114,10 @@ planet_index:
     methods: [GET]
 
 
-planet_new:
+planet_create:
     path: /planet/new
     controller: App\Controller\PlanetController::new
     methods: [GET, POST]
-    condition: request.isXmlHttpRequest()
 
 
 planet_show:
@@ -136,4 +135,8 @@ planet_edit:
 planet_delete:
     path: /planet/delete/{id}
     controller: App\Controller\PlanetController::delete
-    methods: [delete]
+
+planets_list:
+    path: /planets_list
+    controller: App\Controller\PlanetController::list
+    methods: [GET]
