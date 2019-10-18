@@ -30,8 +30,9 @@ class UserController extends AbstractController
         $users = $this->getDoctrine()
             ->getRepository(User::class)
             ->findAll();
+        //On paramètre la pagination en précisant le nombre d'elements qu'on veut afficher par page
         $list_users = $paginator->paginate(
-            $users, // Requête contenant les données à paginer (ici nos articles)
+            $users, // Requête contenant les données à paginer (les utilisateurs)
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
             10 // Nombre de résultats par page
         );
