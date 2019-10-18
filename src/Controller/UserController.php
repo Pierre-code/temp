@@ -61,14 +61,7 @@ class UserController extends AbstractController
         }
         $ship = $user->getShip();
 
-        /*
-         * Récupérer les canons associés au vaisseau et les stocker dans une variable $canons
-         * Utiliser la méthode Ship::getCannons()
-         * */
-
-        /**
-         * Envoyer le paramètre $user et $cannons à la vue
-         */
+        // Récupérer tous les canons avec la méthode $ship::getCanons();
 
         return $this->render('user/ship.html.twig', [
             'controller_name' => 'UserController',

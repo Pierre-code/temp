@@ -1,7 +1,7 @@
 // =============================================================================
 // FONTS
-// 
-// Ce fichier importe les différentes polices, 
+//
+// Ce fichier importe les différentes polices,
 // et défini les tailles de texte par défaut
 // =============================================================================
 
@@ -38,6 +38,7 @@ body {
     @media (min-width: $min-md-bkpt) {
       h1 {
         font-size: 2.3em;
+
       }
 
       h2 {

@@ -50,7 +50,7 @@ class ShipController extends AbstractController
     {
         if (!$ship) {
             return new Response(
-                '<html lang="fr_FR"><body>Erreur, le ship'. $id .' n\'existe pas. </body></html>'
+                '<html lang="fr_FR"><body>Erreur, le ship'. $ship->getId() .' n\'existe pas. </body></html>'
             );
         }
         $user = $this->userRepository->findFirst();
@@ -58,6 +58,6 @@ class ShipController extends AbstractController
         $this->em->persist($user);
         $this->em->flush();
 
-        return $this->redirectToRoute('user_ship', ['message' => 'Vous avez choisi le bon vaisseau, amigo !']);
+        return $this->redirectToRoute('user_ship');
     }
 }
