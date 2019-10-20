@@ -1,0 +1,164 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IntegrationMaquetteController!{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xl-12 col-sm-12 user-dashboard center">
+            <h1>Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-2 col-sm-12">
+            <div class="user-picture center">
+                <img src="{{ asset('/images/user1.jpg') }}" alt="user-image">
+            </div>
+        </div>
+        <div class="col-xl-9 col-sm-12 user-bloc my-auto">
+            <h3>MES INFORMATIONS</h3>
+        </div>
+    </div>
+
+    <!-- NOM DE FAMILLE + PRENOM + EMAIL-->
+    <div class="row">
+        <div class="col-xl-2 col-sm-0"></div>
+        <div class="col-xl-3 col-sm-12 user-bloc">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-attribut">
+                        NOM DE FAMILLE
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-value">
+                        Musk
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-12 user-bloc">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-attribut">
+                        PRENOM
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-value">
+                        Ellon
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-12 user-bloc">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-attribut">
+                        E-MAIL
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-value">
+                        ellon.musk@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEL PORTABLE + TEL FIXE + ADRESSE -->
+    <div class="row">
+        <div class="col-xl-2 col-sm-0"></div>
+        <div class="col-xl-3 col-sm-12 user-bloc">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-attribut">
+                        TEL. FIXE
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-value">
+                        01 20 20 20 20
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-12 user-bloc">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-attribut">
+                        TEL. PORTABLE
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-value">
+                        06 20 20 20 20
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-12 user-bloc">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-attribut">
+                        ADRESSE
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-value">
+                        10911 Chalon Rd.</br>
+                        Los Angeles, CA</br>
+                        90077
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SPORT -->
+    <div class="row">
+        <div class="col-xl-2 col-sm-0"></div>
+        <div class="col-xl-3 col-sm-12 user-bloc">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-attribut">
+                        SPORTS
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="user-value">
+                        Badminton, Padel,</br>
+                        Tennis, Squash
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOUTON MODIFIER MES INFORMATIONS -->
+    <div class="row">
+        <div class="col-xl-12 col-sm-12 user-bloc">
+            <div class="row justify-content-end">
+                <a href="">MODIFIER MES INFORMATIONS</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

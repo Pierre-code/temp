@@ -31,6 +31,7 @@ require('../sass/3-pages/user_ship_page.scss');
 
 // Pages
 require('../sass/pages/home.scss');
+require('../sass/pages/integration-maquette.scss');
 
 // =============================================================================
 // Require dependencies
