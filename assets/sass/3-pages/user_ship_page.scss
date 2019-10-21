@@ -1,14 +1,34 @@
 .user_ship_page {
-    .h3special {
-        border: dashed 4px #0000FF
+    /* Ici vous trouverez tout ce qui est relatif à la page user_ship_page.
+        Les classes sont nommées selon la norme BEM
+
+        Donc si je veux sélectionner la zone de l'homme glacé je nomme la classe de l'homme glacé ainsi :
+        user_ship_page__cold_man.
+
+        Puis j'ajoute son sélecteur dans ce fichier : &__cold_man.
+
+        Attention, c'est un tout qui doit englober des parties plus petites !
+        Ces propriétés ne prendront effet que sur cette page.
+        Pour mettre en place des propriétés globales, modifier les CSS des autres fichiers (_fonts.scss par exemple)
+     */
+
+    &__h3special { // = .user_ship_page__h3special ; Sass est intelligent !
+        border: dashed 4px #0000FF;
     }
 
-    &__ship {
+    &__ship { // = .user_ship_page__ship
         display: flex;
         align-items: center;
         flex-direction: column;
-        &_image {
+
+        &_image { // = .user_ship_page__ship_image
             margin: 1em 0;
+
+            &--mini { // = .user_ship_page__ship_image--mini
+                height: 20px;
+                width: 20px;
+                // Note : Ajouter la classe user_ship_page__ship_image--mini sur une image pour voir le résultat.
+            }
         }
     }
 }
