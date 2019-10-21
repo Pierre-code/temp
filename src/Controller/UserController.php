@@ -59,11 +59,13 @@ class UserController extends AbstractController
 
         // S'il n'y a pas de User en base de données on arrête tout !
         if (!$user) {
-            return new Response('Pas d\'user');
+            return new Response('Pas d\'user. Créer un user <a href="/">ici</a>');
         }
 
         // On récupère le vaisseau du User
         $ship = $user->getShip();
+
+        $canons = $ship->getCannons();
 
         // Récupérer tous les canons avec la méthode $ship::getCanons();
 
@@ -71,7 +73,8 @@ class UserController extends AbstractController
         // On lui envoie les paramètres 'controlleur_name', 'ship', 'user'. On peut envoyer tout ce qu'on veut !
         return $this->render('user/ship.html.twig', [
             'controller_name' => 'UserController',
-            'ship' => $ship
+            'ship' => $ship,
+            'canons' => $canons,
         ]);
     }
 

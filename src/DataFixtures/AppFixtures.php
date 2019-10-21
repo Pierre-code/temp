@@ -5,11 +5,14 @@ namespace App\DataFixtures;
 // src/DataFixtures/AppFixtures.php
 namespace App\DataFixtures;
 
+use App\Entity\Cannon;
 use App\Entity\Ship;
+use App\Repository\ShipRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class AppFixtures extends Fixture
+class AppFixtures extends Fixture implements OrderedFixtureInterface
 {
     /**
      * @param ObjectManager $manager The manager of the database we need to use to create our content
@@ -39,8 +42,19 @@ class AppFixtures extends Fixture
             $ship->setImage($shipImages[$i]);
             // Nous prévenons l'objet Manager d'ajouter l'objet courant au panier de sauvegarde
             $manager->persist($ship);
+
+            $this->addReference('ship-' . $i, $ship);
         }
-        // Nous sauvegardons en base de données
         $manager->flush();
+    }
+
+    /**
+     * Get the order of this fixture
+     *
+     * @return integer
+     */
+    public function getOrder()
+    {
+        return 1;
     }
 }
