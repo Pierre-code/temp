@@ -6,6 +6,7 @@
 
     <div class="user_ship_page">
         <div class="card">
+            <h2>Exercice : Remettre les pendules à l'heure</h2>
             <div class="alert alert-warning">
                 Oh naaaan, un petit malin est passé par là et a transformé toutes les
                 balises H1 pour y ajouter un Thor derrière...
@@ -25,7 +26,6 @@
                     </li>
                 </ul>
             </div>
-            <h2>Exercice : Remettre les pendules à l'heure</h2>
             <h1>Mon vaisseau</h1>
             <h3>
                 Votre vaisseau, maître !
@@ -86,10 +86,12 @@
                 <p class="col">
                     "Nom de l'utilisateur ici" adore Symfony parce que c'est cool... Symfony ... wouhou...
                 </p>
-                {% if user is not defined %}
+                {% if user is defined %}
                     <img src="{{ asset('images/symfony.jpg') }}" class="img-thumbnail col-3">
                 {% endif %}
             </div>
+        </div>
+        <div class="card">
             <div class="alert-warning alert">
                 <h3>Défendez-vous contre les aliens !</h3>
                 <div>
