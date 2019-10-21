@@ -4,13 +4,15 @@
 
 # Bienvenue sur le super TP Symfony 4 !  
 
-Ouais, il fallait un titre accrocheur pour capter votre attention tout ça tout ça... N’empêche qu'on vous à préparer un super projet pour que vous surviviez au SpeedCoding (Ça devrais bien se passer, en théorie). 
+Ouais, il fallait un titre accrocheur pour capter votre attention tout ça tout ça... N’empêche qu'on vous à préparer un super projet pour que vous surviviez au SpeedCoding (Ça devrait bien se passer, en théorie). 
  
 ## Pourquoi le TP ?
 
-L'idée est que chacun valide une liste de compétences afin d’être parfaitement opérationnel dès le premier jour pour que nous réussissions ensemble le projet. Pour rappel, la date de lancement du SpeedCoding est le . De notre coté, nous suivrons votre progression sur le TP afin de valider les compétences au fur et à mesure et de vous aider au mieux si vous rencontrez des difficultés.  
+L'idée est que chacun valide une liste de compétences afin d’être parfaitement opérationnel dès le premier jour pour que nous réussissions ensemble le projet. Pour rappel, la date de lancement du SpeedCoding est le 02/03. De notre coté, nous suivrons votre progression sur le TP afin de valider les compétences au fur et à mesure et de vous aider au mieux si vous rencontrez des difficultés.  
 
-Le TP va prendre la forme d'un petit projet Symphony que vous devrez récupérer depuis un dépôt Git. Une série d’exercice va vous être fourni afin d'enrichir le projet selon différent axes. L'objectif est que tous le monde atteigne un niveau basique en front comme en back. Et oui, bien que nous serons 'spécialisé' durant le SpeedCoding, il est important de comprendre comment fonctionne Symphony, les copains vous remercieront si vous tenez compte de leur travail.
+Le TP va prendre la forme d'un petit projet Symphony que vous devrez récupérer depuis un dépôt Git. Une série d’exercice va vous être fournie afin d'enrichir le projet selon différent axes. L'objectif est que tous le monde atteigne un niveau basique en front comme en back. 
+
+Et oui, bien que nous serons 'spécialisés' durant le SpeedCoding, il est important de comprendre comment fonctionne Symphony pour travailler en équipe efficacement, les copains vous remercieront si vous tenez compte de leur travail.
 
 ## Sinon, le sujet, c'est quoi ?
   
@@ -19,32 +21,46 @@ On s'est inspiré de Star Citizen (simulation spatiale) pour créer un cadre coo
 
 ## Liste des exercices  
   
-You can save any file of the workspace to.
-  
+1 - Initialisation, vous venez d'obtenir votre diplôme d'astronaute, pour pouvez donc choisir votre vaisseau, mais avant ça il faut installer la machine virtuelle et l'environnement de travail. Vous trouverez un guide détaillé [ici](https://gitlab.com/Chatmalow/sandbox_simgame/wikis/Installation)
+(Route : `localhost:8000/`)
+
+2 - Aménagement du vaisseau, vous découvrez votre petit jardin secret et choisissez ce que vous désirez afficher.
+(Route : `localhost:8000/user/ship`
+
+3 - Editer le vaisseau, pour découvrir les formulaires en Symfony et Twig, il faut le rendre assez grand pour y ajouter un Sauna norvégien. 
+(Route: `localhost:8000/user/ship/edit`)
+
+4  - Installer une cafetière, une entité Cafetière est déjà créée, il faut remplir les méthodes qu'elle contient pour afficher, supprimer, ajouter, et modifier une cafetière.
+(Route : ... à vous de la créer !)
+
+5 - Créer des nouvelles planètes pour découvrir le Javascript et l'AJAX 
+(Route : `localhost:8000/planet`)
+
+6 - Créer un système d'authentification avec reconnaissance digitale et scanner rétinien, ou à défaut un formulaire de connexion login/password
+
+7 - Créer un système de pagination pour traiter beaucoup de données d'un coup
+
+8 - Apprendre à se défendre contre les aliens ('faut pas pousser quand même)
+ 
 ## Demander la validation des exercices 
-  
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.  
-  
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.  
-  
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.  
+
+Pour valider un exercice, effectuer un commit sur votre branche 
   
 ## Support, retours et entraide :   
   
 Vu qu'on est super gentil, nous avons mis en place des super moyens pour vous aider à avancer pas à pas !
 
-Vous pouvez papoter avec l'équipe technique via la page Facebook mise en place ou alors via Slack en mp ou via le channel dédié.
-Facebook nous permettra également de vous informez au fur et a mesure de la validation de vos compétences.
+Vous pouvez papoter avec l'équipe technique ou vos p'tits camarades via [la page Facebook](https://www.facebook.com/groups/426816297967440/) mise en place ou alors via Slack en mp ou via le channel dédié.
 
-Cette page facebook à également vocation à etre un espace communautaire pour posez des questions ouvertement. Nous encourageons l'entraide mais nous veillerons a ce que la chartre de fonctionnement soit respectée.
+Facebook nous permettra également de vous informer au fur et a mesure de la validation de vos compétences.
 
-Nous nous reservons également le droit de vous relancer par mp, Slack, mail si nous constatons que vous prenez un retard important sur la formation. 
+Cette page facebook à également vocation à etre un espace communautaire pour poser des questions ouvertement. Nous encourageons l'entraide mais nous veillerons a ce que la chartre de fonctionnement soit respectée.
+
+Nous mettrons également en place un suivi individuel pour rester à disposition et vous permettre la meilleure expérience d'apprentissage. 
 
 ## Installer les outils et récupérer le projet 
   
-Cela peut paraitre stupide mais la première étape consiste à installer tous nos outils pour le developpement. Cette étape est décrite dans le wiki Git du TP ici.
-
-La deuxième étape va etre de cloner le projet depuis le dépot Git. Le wiki de l'instalation est disponible ici.
+Cela peut paraitre stupide mais la première étape consiste à installer tous nos outils pour le developpement. Cette étape est décrite dans le [wiki Git du TP ici](https://gitlab.com/Chatmalow/sandbox_simgame/wikis/Installation).
 
 ## Un mot sur l'IDE PhpStorm
 Le choix de votre IDE est certainement un des plus important pour notre cadre de travail.
@@ -53,8 +69,7 @@ Il dispose aussi d'un plugin dédié projet Symphony.
 
 Toute la suite Jetbrains est gratuite pour les étudiants. https://www.jetbrains.com/.
 
-
 # C'est parti !  
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.  
-   > To start syncing your workspace, just sign in with Google in the menu.
+
+Gardez en tête l'objectif : Valider les compétences. Bon courage !
    
