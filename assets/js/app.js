@@ -25,7 +25,6 @@ require('../sass/layout-elements/reassurances.scss');
 
 require('../sass/1-navs/cards.scss');
 require('../sass/1-navs/alerts.scss');
-require('../sass/3-pages/homepage.scss');
 require('../sass/3-pages/user_ship_page.scss');
 
 
