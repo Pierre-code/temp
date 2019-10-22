@@ -89,11 +89,9 @@ ship_choose:
     controller: App\Controller\ShipController::choose
     methods: [GET]
 
-# Ici vous devrez réparer le chemin d'envoi du formulaire, vous n'aurez que la propriété "controller" à changer.
-# Il ne faut plus appeler la méthode index de ShipController mais sa méthode edit !
 user_ship_edit:
     path: /user/ship/edit
-    controller: App\Controller\ShipController::index
+    controller: App\Controller\ShipController::edit
     methods: [GET, POST]
 
 
