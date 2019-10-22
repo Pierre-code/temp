@@ -3,9 +3,14 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 use phpDocumentor\Reflection\Types\Integer;
+use Doctrine\ORM\QueryBuilder;
+
+
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -27,6 +32,24 @@ class UserRepository extends ServiceEntityRepository
             ->setMaxResults(1)
             ->getResult();
         return $user ? $user[0] : null;
+    }
+    public function findAllVisibleQuery(User $search): Query
+    {
+       // $query = $search->createQuery('SELECT * FROM User u WHERE u.name ==name and u.note ==note');
+
+      /* $query = $this->findVisibleQuery();
+       //$users = $query->getResult();
+        if($search->getUserName()){
+            $query= $query
+                ->andWhere('u.user_name == :user_name')
+                ->setParameter('user_name', $search->getUserName());
+        }
+        if($search->getUserNote()){
+            $query= $query
+                ->andWhere('u.user_note == :user_note')
+                ->setParameter('note', $search->getUserNote());
+        }
+            return $query->getQuery();*/
     }
 
     // /**

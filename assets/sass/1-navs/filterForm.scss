@@ -1,4 +1,22 @@
-.search{
- margin-top: 2px;
+.cardAlign{
+ display: flex;
+ margin:8px;
+ justify-content: space-between;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+.searchContainer{
+// width: 900px;
+ height: 100px;
+ border: 1px solid;
+ border-color:silver;
+ flex-direction: row;
+ justify-content: space-between;
+}
+#ex1Slider .slider-selection {
+ background: #BABABA;
+}
 
+.paginationContainer{
+ //background-color:green;
 }

@@ -3,44 +3,73 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
+
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
-<div class="example-wrapper">
-    <div class ="search">
-        <input  class= "form-control" type="text" placeholder="Rechercher">
+    <div class ="searchContainer">
+        <input
+                id="ex1"
+                data-slider-id='ex1Slider'
+                type="range"
+                data-slider-min="0"
+                data-slider-max="20"
+                data-slider-step="1"
+                data-slider-value="14"
+        />
+        <!--<input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical">-->
     </div>
+
+<!--<div class="example-wrapper">-->
+    <!--<div class ="search">
+        <input  class= "form-control" type="text" placeholder="Rechercher">
+    </div-->
     <!--<h1>Hello !< haha/h1>-->
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Note</th>
-            </tr>
-        </thead>
-        <tbody>
-            <thead>
-                <tr>
-                    {% for user in users %}
-                    <td>
-                        {{ user.id }}
-                    </td>
-                    <td>
-                        {{ user.name }}
-                    </td>
-                    <td>
-                        {{ user.note }}
-                    </td>
-                </tr>
-                {% endfor %}
-            </thead>
-        </tbody>
-    </table>
-    <div class ="pagination">
-        {{ knp_pagination_render(users) }}
+
+   <!-- <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Default checkbox
+                    </label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>exemple</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                <button type="button" class="btn btn-primary">Primary</button>
+            </div>
+
+        </div>
+    </div>-->
+    <!--<div class ="searchContainer">
+        <div class="container">
+            <div  class ="col-md-4 mb-3">
+                <input type="range"  min="0" max="5" step="0.5" id="customRange3">
+            </div>
+
+        </div>
+    </div>
+</div>-->
+    <div class ="cardAlign">
+        {% for user in users %}
+                <div class="col-sm-4">
+                    <div class="card" >
+                        <img class="card-img-top" src="../public/images/bad.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Nom: {{ user.name }} </p>
+                            <p class="card-text"> Note:  {{ user.note }} </p>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+    <div class ="paginationContainer">
+        <div class ="pagination">
+            {{ knp_pagination_render(users) }}
+        </div>
     </div>
 </div>
 {% endblock %}

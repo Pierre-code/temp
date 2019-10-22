@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Query;
+use Symfony\Component\Validator\Constraint as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserSearchRepository")
@@ -17,7 +20,7 @@ class UserSearch
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255)homestead@192.168.10.10
      */
     private $user_name;
 
@@ -43,7 +46,7 @@ class UserSearch
         return $this;
     }
 
-    public function getUserNote(): ?float
+    public function getUserNote(): ?int
     {
         return $this->user_note;
     }

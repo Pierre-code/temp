@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a227a29-7061-47a5-bbb6-ae608b2bdd22" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/sass/1-navs/filterForm.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/partials/filter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/partials/basics.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/partials/basics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/1-navs/filterForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/1-navs/filterForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/UserSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserSearch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserSearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserSearchType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserSearchRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserSearchRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/list.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -168,19 +177,19 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="fr.adrienbrault.idea.symfony2plugin.ui.TwigSettingsForm" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/templates/user" />
+      <recent name="$PROJECT_DIR$/tests/User" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/User" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/src/Controller" />
       <recent name="$PROJECT_DIR$/src/Controller/Util" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/templates/user" />
-      <recent name="$PROJECT_DIR$/tests/User" />
     </key>
   </component>
   <component name="RunDashboard">

@@ -13,11 +13,6 @@ require('../sass/1-navs/menu.scss');
 require('../sass/1-navs/reassurances.scss');
 require('../sass/3-pages/homepage.scss');
 require('../sass/1-navs/filterForm.scss');
-// =============================================================================
-// Require all js files
-// =============================================================================
-require('./partials/basics.js');
-require('./heater.js');
 
 // =============================================================================
 // Require dependencies
@@ -25,3 +20,12 @@ require('./heater.js');
 const $ = require('jquery');
 // require popper.js ?
 require('bootstrap');
+require('bootstrap-slider');
+
+// =============================================================================
+// Require all js files
+// =============================================================================
+require('./partials/basics.js');
+require('./filter.js');
+require('./heater.js');
+

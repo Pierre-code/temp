@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "bootstrap-slider": "^10.6.2",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "range-slider-element": "^1.0.0-beta.6",
+    "rangeslider.js": "^2.3.3"
   },
   "scripts": {
     "watch": "encore dev --watch",

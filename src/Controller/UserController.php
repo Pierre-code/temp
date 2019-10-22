@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\UserSearch;
+
 use App\Form\ShipType;
+use App\Form\UserSearchType;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,15 +29,19 @@ class UserController extends AbstractController
 
     public function index(Request $request, PaginatorInterface $paginator)
     {
+       // $search = new UserSearch();
+       // $form = $this->createForm(UserSearchType::class, $search);
+       // $form->handleRequest($request);
 
         $users = $this->getDoctrine()
             ->getRepository(User::class)
             ->findAll();
+        //$this->userRepository->findAllVisibleQuery($search);
         //On paramètre la pagination en précisant le nombre d'elements qu'on veut afficher par page
         $list_users = $paginator->paginate(
             $users, // Requête contenant les données à paginer (les utilisateurs)
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            10 // Nombre de résultats par page
+            6 // Nombre de résultats par page
         );
 
         // créer une entité qui va rechercher un utilisateur spécifique
@@ -43,6 +50,7 @@ class UserController extends AbstractController
         return $this->render('user/list.html.twig', [
             'controller_name' => 'UserController',
             'users' => $list_users
+            //'form' => $form->createView()
         ]);
 
     }
