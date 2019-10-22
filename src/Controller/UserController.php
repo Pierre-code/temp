@@ -77,21 +77,4 @@ class UserController extends AbstractController
             'canons' => $canons,
         ]);
     }
-
-    public function edit(Request $request) {
-        $user = $this->userRepository->findFirst();
-        $ship = $user->getShip();
-        $form = $this->createForm(ShipType::class, $ship);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->entityManager->flush();
-            return $this->redirectToRoute('user_ship');
-        }
-
-        return $this->render('user/ship_edit.html.twig', [
-            'controller_name' => 'UserController',
-            'ship' => $ship,
-            'form' => $form->createView(),
-        ]);
-    }
 }

@@ -22,10 +22,10 @@ class ShipType extends AbstractType
          * */
         $builder
             ->add('name', null, [
-                'help' => 'Le nom de votre vaisseau',
+                'help' => 'Le nom de votre vaisseau', // Petit message d'aide qui va s'afficher sous le champ
             ])
             ->add('price')
-            ->add('type', ChoiceType::class, ['choices' => $this->types()])
+            ->add('type', ChoiceType::class, ['choices' => $this->types()]) // Notez bien la manière dont on utilise le champ du type, on en aura besoin pour l'AJAX avec les planètes
         ;
     }
 

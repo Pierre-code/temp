@@ -4,6 +4,12 @@
 
 {% block body %}
 
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="user_ship_page">
         <div class="card">
             <h2>Exercice : Remettre les pendules à l'heure</h2>
@@ -47,6 +53,9 @@
             </div>
             <div class="user_ship_page__ship">
                 <img class="user_ship_page__ship_image" src="{{ ship.image }}">
+                {% if ship.taille > 1000 %}
+                    <img style="width: 30%;" class="img-fluid" src="{{ asset('/images/jaccuzzi.jpg') }}">
+                {% endif %}
                 <div class="user_ship_page__ship_info">
                     Prix : {{ ship.price }}
                 </div>
@@ -56,20 +65,14 @@
                 <a href="https://twig.symfony.com/doc/2.x/tags/if.html">Plus d'informations sur les structures conditionnelles ici</a>
                 <ul>
                     <li>
-                        Si ship.taille > 100, afficher "ça c'est un grand vaisseau"
+                        Si ship.price > 5000, afficher "C'est un peu cher. Ils font un crédit ?"
                     </li>
                     <li>
-                        Si ship.taille < 100, afficher "ça c'est un mini vaisseau amigo, avec une image de chat-botté"
+                        Si ship.taille < 5000, afficher "Le vaisseau du bled !"
                     </li>
                 </ul>
             </div>
-            <p class="alert alert-success">
-                {% if ship.taille > 100 %}
-                    ça c'est du grand vaisseau !
-                {% else %}
-                    ça c'est du mini vaisseau !
-                {% endif %}
-            </p>
+            <i class="alert alert-success">Conition ici</i>
             <div class="row justify-content-center">
                 <a class="btn btn-primary col-8" href="{{ path('user_ship_edit')}}">Modifier</a>
             </div>

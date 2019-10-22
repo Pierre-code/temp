@@ -18,15 +18,22 @@
             </div>
         <button class="btn btn-primary">Editer</button>
         {{ form_end(form) }}
-
-        <p>
-            1. - Modifier le fichier /Form/ShipType.php pour permettre d'éditer le champ, 'taille'.
-        </p>
-        <p>
-            2. - Modifier les règles de validation du nom pour qu'elles n'acceptent que les noms dont:
-            La longueur minimale est 6
-            La longueur maximale est 16
-        </p>
+        <div class="alert alert-warning">
+            <ul>
+                <li>
+                    Modifier le fichier /Form/ShipType.php pour permettre d'éditer le champ, 'taille'.
+                </li>
+                <li>
+                    Modifier les règles de validation du nom dans le modèle Ship.php pour qu'elles n'acceptent que les noms dont:
+                    La longueur minimale est 6
+                    La longueur maximale est 16
+                </li>
+                <li>
+                    Editer ShipController pour afficher un message de succès de type flash
+                    <a href="https://symfonycasts.com/screencast/symfony-forms/flash-messages">Mais dis-donc Jammy, c'est quoi un flash ?</a>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="positionning-block card">
         <h2>Exercice : Positionnement</h2>

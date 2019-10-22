@@ -3,22 +3,25 @@
 namespace App\Controller;
 
 use App\Entity\Ship;
+use App\Form\ShipType;
 use App\Repository\ShipRepository;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ShipController extends AbstractController
 {
     private $repository;
-    private $em;
+    private $entityManager;
     private $userRepository;
 
-    public function __construct(ShipRepository $repository, ObjectManager $em, UserRepository $userRepository)
+    public function __construct(ShipRepository $repository, UserRepository $userRepository, EntityManagerInterface $entityManager)
     {
         $this->repository = $repository;
-        $this->em = $em;
+        $this->entityManager = $entityManager;
         $this->userRepository = $userRepository;
     }
 
@@ -55,9 +58,35 @@ class ShipController extends AbstractController
         }
         $user = $this->userRepository->findFirst();
         $user->setShip($ship);
-        $this->em->persist($user);
-        $this->em->flush();
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+
+        // Permet d'afficher un message de succès, aller voir /templates/user/ship.html.twig pour voir comment on l'affiche !
+        $this->addFlash("success", "Excellent choix Senior !");
 
         return $this->redirectToRoute('user_ship');
+    }
+
+
+    public function edit(Request $request) {
+        $user = $this->userRepository->findFirst();
+        $ship = $user->getShip();
+        $form = $this->createForm(ShipType::class, $ship);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->entityManager->flush();
+            return $this->redirectToRoute('user_ship');
+        }
+
+        // Utiliser la méthode addFlash() pour afficher un message de succès.
+        // Un exemple d'utilisation se trouve dans la méthode choose de ShipController.
+
+        $this->addFlash("success", "Le vaisseau a bien été modifié, bien joué !");
+
+        return $this->render('user/ship_edit.html.twig', [
+            'controller_name' => 'UserController',
+            'ship' => $ship,
+            'form' => $form->createView(),
+        ]);
     }
 }
