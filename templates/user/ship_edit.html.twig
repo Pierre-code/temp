@@ -9,6 +9,17 @@
         Editer votre vaisseau, maître !
     </h3>
     <div class="card">
+        <div class="alert alert-warning">
+            Oh non, le formulaire d'édition du vaisseau est cassé, on ne va pas pouvoir installer le jaccuzzi si on ne le répare pas !
+            <ul>
+                <li>
+                    Consulter le fichier routes.yaml, et réparer la route d'envoi du formulaire pour ne plus avoir d'erreur quand on clique sur Editer.
+                    Il faut pointer sur le contrôleur ShipController dans la méthode edit().
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card">
         <h2>Exercice : Ajouter des champs d'édition pour le vaisseau </h2>
         {{ form_start(form)}}
             <div class="form-group">
@@ -19,31 +30,43 @@
         <button class="btn btn-primary">Editer</button>
         {{ form_end(form) }}
         <div class="alert alert-warning">
+            On veut ajouter un jaccuzzi dans le vaisseau mais il n'est pas assez grand.
+            Dans ce formulaire incomplet on va se permettre de modifier sa taille pour l'installer en toute sécurité.
             <ul>
                 <li>
                     Modifier le fichier /Form/ShipType.php pour permettre d'éditer le champ, 'taille'.
-                </li>
-                <li>
-                    Modifier les règles de validation du nom dans le modèle Ship.php pour qu'elles n'acceptent que les noms dont:
-                    La longueur minimale est 6
-                    La longueur maximale est 16
+                    Modifier la taille de votre vaisseau pour qu'il soit plus grand que 1 000.
                 </li>
                 <li>
                     Editer ShipController pour afficher un message de succès de type flash
                     <a href="https://symfonycasts.com/screencast/symfony-forms/flash-messages">Mais dis-donc Jammy, c'est quoi un flash ?</a>
                 </li>
+                <li>
+                    Editer ShipController pour être redirigé vers la page /user/ship en cas de succès de l'opération.
+                </li>
+                <li>
+                    <b>Back only !</b>
+                    Modifier les règles de validation du nom dans le modèle Ship.php pour qu'elles n'acceptent que les noms dont:
+                    La longueur minimale est 6
+                    La longueur maximale est 16
+                    <a href="https://symfony.com/doc/current/reference/constraints/Length.html">Plus d'informations ici</a>
+                </li>
             </ul>
         </div>
     </div>
-    <div class="positionning-block card">
+    <div class="positionning_block card">
         <h2>Exercice : Positionnement</h2>
-        <div class="positionning-block-images">
-            <div class="move-me">Move me !</div>
-            <img class="positionning-block-image" src={{asset('images/singe.jpeg')}} >
-            <img class="positionning-block-image" src={{asset('images/singe_2.jpeg')}} >
+        <div class="positionning_block_images">
+            <div class="positionning_block__move_me">Move me !</div>
+            <img class="positionning_block_image" src={{asset('images/singe.jpeg')}} >
+            <img class="positionning_block_image" src={{asset('images/singe_2.jpeg')}} >
         </div>
-        <p>CSS : Modifier les règles CSS du bloc de classe "move-me" de manière à cacher le derrière du singe</p>
-        <p><i>Astuce : Utiliser les propriétés top, left, right, bottom pour le positionnement, et height, width pour la taille</i></p>
+        <div class="alert alert-warning">
+            CSS : Modifier les règles CSS du bloc de classe "positionning_block__move_me" de manière à cacher le derrière du singe
+            <p>Astuce : Utiliser les propriétés top, left, right, bottom pour le positionnement, et height, width pour la taille</p>
+            <a>Besoin d'aide ? C'est ici !</a>
+            <p>Astuce 2 (toujours plus): Modifier le fichier SCSS assets/sass/pages/ship_edit.scss</p>
+        </div>
     </div>
 </div>
 {% endblock %}

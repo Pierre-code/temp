@@ -23,13 +23,14 @@ require('../sass/layout-elements/menu.scss');
 require('../sass/layout-elements/sidebars.scss');
 require('../sass/layout-elements/reassurances.scss');
 
-require('../sass/1-navs/cards.scss');
-require('../sass/1-navs/alerts.scss');
-require('../sass/3-pages/user_ship_page.scss');
+require('../sass/components/cards.scss');
+require('../sass/components/alerts.scss');
 
 
 // Pages
+require('../sass/pages/user_ship_page.scss');
 require('../sass/pages/home.scss');
+require('../sass/pages/ship_edit.scss');
 
 // =============================================================================
 // Require dependencies
