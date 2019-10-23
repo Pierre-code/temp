@@ -96,11 +96,6 @@ user_ship_edit:
 
 
 #user
-user_index:
-    path: /user
-    controller: App\Controller\UserController::index
-    methods: [GET]
-
 user_ship:
     path: /user/ship/
     controller: App\Controller\UserController::ship

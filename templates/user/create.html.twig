@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Début de l'aventure{% endblock %}
 
 {% block body %}
-
-<div class="container">
-    <h1>Hello !</h1>
-    <!--
-        TODO - Mettre le formulaire ici
-        TODO - Ajouter un petit texte briefing/ambiance qui va bien
-    -->
-</div>
+    <div class="container">
+        <h3>
+            Ici commence votre aventure
+        </h3>
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        <button class="btn btn-primary">S'enregistrer</button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

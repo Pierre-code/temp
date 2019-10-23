@@ -22,18 +22,6 @@ class UserController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    public function index()
-    {
-        $users = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findAll();
-
-        return $this->render('user/create.html.twig', [
-            'controller_name' => 'UserController',
-            'users' => $users
-        ]);
-    }
-
     public function initialisation(Request $request)
     {
 
@@ -48,7 +36,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('ship_index');
         }
 
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/create.html.twig', [
             'form' => $form->createView(),
         ]);
     }
