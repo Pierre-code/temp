@@ -1,6 +1,6 @@
 .cardAlign{
  display: flex;
- margin:8px;
+ //margin:8px;
  justify-content: space-between;
  flex-direction: row;
  flex-wrap: wrap;
@@ -18,5 +18,7 @@
 }
 
 .paginationContainer{
+float:right;
+
  //background-color:green;
 }

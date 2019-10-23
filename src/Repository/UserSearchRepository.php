@@ -5,7 +5,6 @@ namespace App\Repository;
 use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\ORM\Query;
 
 /**
  * @method UserSearch|null find($id, $lockMode = null, $lockVersion = null)
@@ -24,8 +23,6 @@ class UserSearchRepository extends ServiceEntityRepository
     //  * @return UserSearch[] Returns an array of UserSearch objects
     //  */
     /*
-     *
-
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('u')

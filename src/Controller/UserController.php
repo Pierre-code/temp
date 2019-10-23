@@ -27,16 +27,16 @@ class UserController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    public function index(Request $request, PaginatorInterface $paginator)
+    public function index(Request $request, PaginatorInterface $paginator):Response
     {
-       // $search = new UserSearch();
-       // $form = $this->createForm(UserSearchType::class, $search);
-       // $form->handleRequest($request);
+       $search = new UserSearch();
+       $form = $this->createForm(UserSearchType::class, $search);
+       $form->handleRequest($request);
 
         $users = $this->getDoctrine()
             ->getRepository(User::class)
             ->findAll();
-        //$this->userRepository->findAllVisibleQuery($search);
+        $this->userRepository->findAllVisibleQuery($search);
         //On paramètre la pagination en précisant le nombre d'elements qu'on veut afficher par page
         $list_users = $paginator->paginate(
             $users, // Requête contenant les données à paginer (les utilisateurs)
@@ -49,8 +49,8 @@ class UserController extends AbstractController
 
         return $this->render('user/list.html.twig', [
             'controller_name' => 'UserController',
-            'users' => $list_users
-            //'form' => $form->createView()
+            'users' => $list_users,
+            'form' => $form->createView()
         ]);
 
     }

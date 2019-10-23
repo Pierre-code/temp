@@ -3,9 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Query;
-use Symfony\Component\Validator\Constraint as Assert;
-
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserSearchRepository")
@@ -20,40 +17,40 @@ class UserSearch
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)homestead@192.168.10.10
+     * @ORM\Column(type="integer")
      */
-    private $user_name;
+    private $min_note;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="integer")
      */
-    private $user_note;
+    private $max_note;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserName(): ?string
+    public function getMinNote(): ?int
     {
-        return $this->user_name;
+        return $this->min_note;
     }
 
-    public function setUserName(string $user_name): self
+    public function setMinNote(int $min_note): self
     {
-        $this->user_name = $user_name;
+        $this->min_note = $min_note;
 
         return $this;
     }
 
-    public function getUserNote(): ?int
+    public function getMaxNote(): ?int
     {
-        return $this->user_note;
+        return $this->max_note;
     }
 
-    public function setUserNote(float $user_note): self
+    public function setMaxNote(int $max_note): self
     {
-        $this->user_note = $user_note;
+        $this->max_note = $max_note;
 
         return $this;
     }

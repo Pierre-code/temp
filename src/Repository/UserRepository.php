@@ -33,23 +33,29 @@ class UserRepository extends ServiceEntityRepository
             ->getResult();
         return $user ? $user[0] : null;
     }
-    public function findAllVisibleQuery(User $search): Query
+
+    public function findVisibleQuery():QueryBuilder
+    {
+        return $this->createQueryBuilder('user');
+    }
+
+    public function findAllVisibleQuery(UserSearch $search): Query
     {
        // $query = $search->createQuery('SELECT * FROM User u WHERE u.name ==name and u.note ==note');
 
-      /* $query = $this->findVisibleQuery();
+       $query = $this->findVisibleQuery();
        //$users = $query->getResult();
-        if($search->getUserName()){
+        if($search->getMinNote()){
             $query= $query
-                ->andWhere('u.user_name == :user_name')
-                ->setParameter('user_name', $search->getUserName());
+                ->andWhere('user.note >= :min_note')
+                ->setParameter('min_note', $search->getMinNote());
         }
-        if($search->getUserNote()){
+        if($search->getMaxNote()){
             $query= $query
-                ->andWhere('u.user_note == :user_note')
-                ->setParameter('note', $search->getUserNote());
+                ->andWhere('user.note <= :max_note')
+                ->setParameter('max_note', $search->getMaxNote());
         }
-            return $query->getQuery();*/
+            return $query->getQuery();
     }
 
     // /**

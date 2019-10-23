@@ -4,22 +4,31 @@
 
 {% block body %}
 
-<style>
+<!--<style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-    <div class ="searchContainer">
-        <input
-                id="ex1"
-                data-slider-id='ex1Slider'
-                type="range"
-                data-slider-min="0"
-                data-slider-max="20"
-                data-slider-step="1"
-                data-slider-value="14"
-        />
-        <!--<input type="range" min="10" max="1000" step="10" value="300" data-orientation="vertical">-->
-    </div>
+</style>-->
+
+        <div class ="jumbotron">
+            <div class ="container">
+                {{form_start(form)}}
+                <div class ="form-row">
+                    <div class ="col">
+                        {{ form_row(form.min_note) }}
+                    </div>
+                    <div class ="col">
+                        {{ form_row(form.max_note) }}
+                    </div>
+                    <div class ="col">
+                        <button class ="btn btn-primary">
+                            Rechercher
+                        </button>
+                    </div>
+                    {{form_end(form)}}
+                </div>
+            </div>
+        </div>
+
 
 <!--<div class="example-wrapper">-->
     <!--<div class ="search">
@@ -56,8 +65,8 @@
     <div class ="cardAlign">
         {% for user in users %}
                 <div class="col-sm-4">
-                    <div class="card" >
-                        <img class="card-img-top" src="../public/images/bad.jpg" alt="Card image cap">
+                    <div class="card" style="align-items: center">
+                        <img class="card-img-top" src="{{asset('images/bad.jpg')}}" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Nom: {{ user.name }} </p>
                             <p class="card-text"> Note:  {{ user.note }} </p>
