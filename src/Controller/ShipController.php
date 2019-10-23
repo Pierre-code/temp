@@ -62,7 +62,7 @@ class ShipController extends AbstractController
         $this->entityManager->flush();
 
         // Permet d'afficher un message de succès, aller voir /templates/user/ship.html.twig pour voir comment on l'affiche !
-        $this->addFlash("success", "Excellent choix Senior !");
+        $this->addFlash("choose_success", "Excellent choix Senior !");
 
         return $this->redirectToRoute('user_ship');
     }
@@ -80,8 +80,6 @@ class ShipController extends AbstractController
 
         // Utiliser la méthode addFlash() pour afficher un message de succès.
         // Un exemple d'utilisation se trouve dans la méthode choose de ShipController.
-
-        $this->addFlash("success", "Le vaisseau a bien été modifié, bien joué !");
 
         return $this->render('user/ship_edit.html.twig', [
             'controller_name' => 'UserController',

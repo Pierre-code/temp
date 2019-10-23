@@ -5,7 +5,11 @@
 {% block body %}
 
     {% for message in app.flashes('success') %}
-            {{ message }}
+        {{ message }}
+    {% endfor %}
+
+    {% for message in app.flashes('choose_success') %}
+        {{ message }}
     {% endfor %}
 
     <div class="user_ship_page">
@@ -70,7 +74,7 @@
                     </li>
                 </ul>
             </div>
-            <i class="alert alert-success">Conition ici</i>
+            <i class="alert alert-success">Condition ici</i>
             <div class="row justify-content-center">
                 <a class="btn btn-primary col-8" href="{{ path('user_ship_edit')}}">Modifier</a>
             </div>
