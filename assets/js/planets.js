@@ -13,9 +13,10 @@ function fetch_planets() {
             </td>
             <td>${planet.name}
             </td>
-          <td>
-              <button class="btn delete_planet_button" id="delete_planet-${planet.id}">Supprimer</button>
-          </td>
+            <td>
+                <button class="btn btn-danger delete_planet_button" id="delete_planet-${planet.id}">Supprimer</button>
+            </td>
+          </tr>
           `)
         $(".delete_planet_button").bind('click', delete_planet)
       })
@@ -28,7 +29,7 @@ function delete_planet(event) {
   $.post({
     url: `/planet/delete/${event.target.id.split('-')[1]}`,
     success: fetch_planets(),
-    async: false,
+    async: true,
   });
 }
 
