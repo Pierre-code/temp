@@ -55,6 +55,17 @@ class UserController extends AbstractController
         // On récupère le vaisseau du User
         $ship = $user->getShip();
 
+        if (!$ship) {
+            return new Response(
+                '<html lang="fr_FR">
+                            <body>
+                                Erreur, le vaisseau n\'a pas encore été choisi !
+                                Rendez-vous sur <a href="/ship">cette page</a> pour choisir. 
+                            </body>
+                        </html>'
+            );
+        }
+
         $canons = $ship->getCannons();
 
         // Récupérer tous les canons avec la méthode $ship::getCanons();
