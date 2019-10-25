@@ -10,7 +10,7 @@ if (document.getElementById("heat-machine") !== null) {
     summary.innerText = "Bien joué, on sait maintenant inclure des partials ! C'est encore un peu trop chaud, il faut " +
       "qu'on agrandisse le ventilateur. Pas de problème, on a déjà créé un fichier de style qui le fait " +
       "automatiquement. Tout ce qu'il nous reste à faire est de charger ce fichier." +
-      "Consulter le fichier /assets/app.js et y inclure le fichier scss /assets/sass/3-pages/heating.scss"
+      "Consulter le fichier /assets/app.js et y inclure le fichier /assets/sass/pages/heating.scss"
 
     let fanImage = document.getElementById("fan-image");
     if (fanImage.offsetWidth >= 500) {
