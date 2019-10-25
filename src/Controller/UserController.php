@@ -25,7 +25,9 @@ class UserController extends AbstractController
     public function initialisation(Request $request)
     {
 
-        // TODO - Adapter le code ci-dessous pour qu'il puisse afficher le formulaire d'enregistrement d'utilisateur et le traiter
+        $existing_users = $this->userRepository->findAll();
+        $this->removeUsers($existing_users);
+
 
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -64,5 +66,17 @@ class UserController extends AbstractController
             'ship' => $ship,
             'canons' => $canons,
         ]);
+    }
+
+    /**
+     * @param array $existing_users la liste des utilisateurs que l'on veut supprimer
+     *
+     */
+    private function removeUsers(array $existing_users)
+    {
+        foreach ($existing_users as $user) {
+            $this->entityManager->remove($user);
+        }
+            $this->entityManager->flush();
     }
 }
