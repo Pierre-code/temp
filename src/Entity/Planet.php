@@ -22,6 +22,16 @@ class Planet
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="bigint", nullable=true)
+     */
+    private $population;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $speciality;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +45,30 @@ class Planet
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getPopulation(): ?string
+    {
+        return $this->population;
+    }
+
+    public function setPopulation(?string $population): self
+    {
+        $this->population = $population;
+
+        return $this;
+    }
+
+    public function getSpeciality(): ?string
+    {
+        return $this->speciality;
+    }
+
+    public function setSpeciality(?string $speciality): self
+    {
+        $this->speciality = $speciality;
 
         return $this;
     }

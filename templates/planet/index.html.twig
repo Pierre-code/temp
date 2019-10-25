@@ -11,6 +11,8 @@
             <div class="col">
                 {{ form_start(form, {'attr': {'id': 'add_planet_form'}})}}
                     {{ form_row(form.name, {'attr' : {'class': 'planet_name_field','placeholder': 'Nom de la planète', 'name': 'name', 'id': 'planet_name'}}) }}
+                    {{ form_row(form.population, {'attr' : {'class': 'planet_population_field','placeholder': 'Population', 'name': 'population', 'id': 'planet_population'}}) }}
+                    {{ form_row(form.speciality, {'attr' : {'class': 'planet_speciality_field','placeholder': 'Spécialité culinaire', 'name': 'speciality', 'id': 'planet_speciality'}}) }}
                     <button class="btn btn-primary">Ajouter</button>
                 {{ form_end(form) }}
             </div>

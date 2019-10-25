@@ -16,6 +16,8 @@ class PlanetType extends AbstractType
             ->add('name', TextType::class, array(
                 'required' => false,
             ))
+            ->add('population')
+            ->add('speciality')
         ;
     }
 

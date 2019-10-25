@@ -43,7 +43,11 @@ class PlanetController extends AbstractController
     public function new(Request $request): Response
     {
         $planet = new Planet();
-        $planet->setName($request->request->get('name'));
+        $planet
+            ->setName($request->request->get('name'))
+            ->setPopulation($request->request->get('population'))
+            ->setSpeciality($request->request->get('speciality'))
+        ;
         $this->entityManager->persist($planet);
         $this->entityManager->flush();
 
