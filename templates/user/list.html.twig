@@ -3,33 +3,30 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-
 <!--<style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>-->
-
         <div class ="jumbotron">
             <div class ="container">
                 {{form_start(form)}}
                 <div class ="form-row">
                     <div class ="col">
-                        {{ form_row(form.min_note) }}
+                        Note minimale:{{ form_row(form.min_note) }}
                     </div>
                     <div class ="col">
-                        {{ form_row(form.max_note) }}
+                        Note maximale:{{ form_row(form.max_note) }}
                     </div>
                     <div class ="col">
+
                         <button class ="btn btn-primary">
                             Rechercher
                         </button>
                     </div>
-                    {{form_end(form)}}
                 </div>
+                {{form_end(form)}}
             </div>
         </div>
-
-
 <!--<div class="example-wrapper">-->
     <!--<div class ="search">
         <input  class= "form-control" type="text" placeholder="Rechercher">
@@ -70,6 +67,7 @@
                         <div class="card-body">
                             <p class="card-text">Nom: {{ user.name }} </p>
                             <p class="card-text"> Note:  {{ user.note }} </p>
+                            <p class="card-text"> Poids:  {{ user.weight }} </p>
                         </div>
                     </div>
                 </div>

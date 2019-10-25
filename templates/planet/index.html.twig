@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planet index{% endblock %}
+
+{% block body %}
+    <div class="planets-page">
+        <div class="row">
+            <div class="col">
+                <h1 class="float-left">Planet index</h1>
+            </div>
+            <div class="col">
+                {{ form_start(form, {'attr': {'id': 'add_planet_form'}})}}
+                    {{ form_row(form.name, {'attr' : {'class': 'planet_name_field','placeholder': 'Nom de la planète', 'name': 'name', 'id': 'planet_name'}}) }}
+                    <button class="btn btn-primary">Ajouter</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="planets_list">
+            {% for planet in planets %}
+                <tr>
+                    <td>{{ planet.id }}</td>
+                    <td>{{ planet.name }}</td>
+                    <td>
+                        <button class="btn btn-danger delete_planet_button" id="delete_planet-{{planet.id}}">Supprimer</button>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

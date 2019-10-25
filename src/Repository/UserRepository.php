@@ -36,26 +36,26 @@ class UserRepository extends ServiceEntityRepository
 
     public function findVisibleQuery():QueryBuilder
     {
-        return $this->createQueryBuilder('user');
+        return $this->createQueryBuilder('p');
     }
 
     public function findAllVisibleQuery(UserSearch $search): Query
     {
-       // $query = $search->createQuery('SELECT * FROM User u WHERE u.name ==name and u.note ==note');
-
        $query = $this->findVisibleQuery();
        //$users = $query->getResult();
-        if($search->getMinNote()){
+
+      /*  if($search->getMinNote()){
             $query= $query
-                ->andWhere('user.note >= :min_note')
-                ->setParameter('min_note', $search->getMinNote());
+                ->andWhere('p.note <= :min_note')
+                ->setParameter('min_note',$search->getMinNote());
         }
         if($search->getMaxNote()){
             $query= $query
-                ->andWhere('user.note <= :max_note')
-                ->setParameter('max_note', $search->getMaxNote());
-        }
-            return $query->getQuery();
+                ->andWhere('p.note <= :max_note')
+                ->setParameter('max_note',$search->getMaxNote());
+        }*/
+
+        return $query->getQuery();
     }
 
     // /**

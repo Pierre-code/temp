@@ -31,6 +31,11 @@ class User
      */
     private $ship;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $weight;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -80,6 +85,18 @@ class User
     public function setShip(?Ship $ship): self
     {
         $this->ship = $ship;
+
+        return $this;
+    }
+
+    public function getWeight(): ?int
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(?int $weight): self
+    {
+        $this->weight = $weight;
 
         return $this;
     }

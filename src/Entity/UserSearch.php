@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,6 +24,7 @@ class UserSearch
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min =10, max =999)
      */
     private $max_note;
 

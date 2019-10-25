@@ -22,6 +22,7 @@ class PropertyFixture extends Fixture
     			$user = new User();
     			$user->setName($faker->name);
                 $user->setNote($faker ->numberBetween(10,1000));
+                $user->setWeight($faker ->numberBetween(10,100));
                 //Permet de dire à Doctrine qu'on veut sauvegarder la liste des utilisateurs
 				$manager->persist($user);
     	}
