@@ -31,7 +31,6 @@ require('../sass/components/alerts.scss');
 require('../sass/pages/user_ship_page.scss');
 require('../sass/pages/home.scss');
 require('../sass/pages/ship_edit.scss');
-require('../sass/pages/heating.scss');
 
 // =============================================================================
 // Require dependencies
@@ -44,6 +43,5 @@ var unicons = require("unicons");
 // =============================================================================
 // Require all js files
 // =============================================================================
-require('./partials/basics.js');
 require('./heater.js');
 require('./planets.js');

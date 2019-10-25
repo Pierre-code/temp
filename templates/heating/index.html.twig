@@ -5,17 +5,15 @@
 {% block body %}
 <div class="container">
     <div class="card">
-        <p id="summary" class="alert alert-warning">
+        <div id="summary" class="alert alert-warning">
             Ici nous allons travailler l'inclusion des pages.
             Cet homme a un peu froid, fouille le dossier /templates pour lui trouver un chauffage !
-        </p>
+        </div>
         <p>
             <a href="https://twig.symfony.com/doc/2.x/tags/include.html">Aide pour inclure des partials</a>
         </p>
         <div class="heating-room">
-            {% include('heating/heating.html.twig') %}
             <img id="man" class="img-thumbnail man" src="{{asset('images/chauffage/froid.jpeg')}}">
-            {% include('heating/fan.html.twig') %}
         </div>
     </div>
 </div>
