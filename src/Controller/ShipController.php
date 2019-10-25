@@ -32,13 +32,13 @@ class ShipController extends AbstractController
 
         if (!$user) {
             return new Response(
-                '<html lang="fr_FR">
-                            <body>
-                                Erreur, l\'utilisateur n\'existe pas encore, il faut d\'abord le créer.
-                                Patience, vous pourrez bientôt choisir votre vaisseau, mais en attendant, 
-                                rendez-vous sur <a href="/initialisation">cette page</a>. 
-                            </body>
-                        </html>'
+        '<html lang="fr_FR">
+                    <body>
+                        Erreur, l\'utilisateur n\'existe pas encore, il faut d\'abord le créer.
+                        Patience, vous pourrez bientôt choisir votre vaisseau, mais en attendant, 
+                        rendez-vous sur <a href="/initialisation">cette page</a>. 
+                    </body>
+                </html>'
             );
         }
 

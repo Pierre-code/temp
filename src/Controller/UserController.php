@@ -57,25 +57,22 @@ class UserController extends AbstractController
 
         if (!$ship) {
             return new Response(
-                '<html lang="fr_FR">
-                            <body>
-                                Erreur, le vaisseau n\'a pas encore été choisi !
-                                Rendez-vous sur <a href="/ship">cette page</a> pour choisir. 
-                            </body>
-                        </html>'
+        '<html lang="fr_FR">
+                    <body>
+                        Erreur, le vaisseau n\'a pas encore été choisi !
+                        Rendez-vous sur <a href="/ship">cette page</a> pour choisir. 
+                    </body>
+                </html>'
             );
         }
 
-        $canons = $ship->getCannons();
-
-        // Récupérer tous les canons avec la méthode $ship::getCanons();
+        // Récupérer tous les canons avec la méthode $ship->getCanons();
 
         // On affiche la vue ship.html.twig
         // On lui envoie les paramètres 'controlleur_name', 'ship', 'user'. On peut envoyer tout ce qu'on veut !
         return $this->render('user/ship.html.twig', [
             'controller_name' => 'UserController',
             'ship' => $ship,
-            'canons' => $canons,
         ]);
     }
 
