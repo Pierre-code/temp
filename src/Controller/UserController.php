@@ -27,24 +27,27 @@ class UserController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
+    // Inclure le paramètre $paginator de type PaginatorInterface
     public function index(Request $request, PaginatorInterface $paginator):Response
     {
        $search = new UserSearch();
        $form = $this->createForm(UserSearchType::class, $search);
        $form->handleRequest($request);
 
-       /* if ($form->isSubmitted() && $form->isValid()) {
-
-            $search = $form->getData();
-        }*/
-
+       // Récupérer tous les users ici dans une variable $users
         $users = $this->getDoctrine()
             ->getRepository(User::class)
             ->findAll();
 
-        $this->userRepository->findAllVisibleQuery($search);
-        //var_dump($this->userRepository->findAllVisibleQuery($search));
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $search = $form->getData();
+            $users = $this->userRepository->findAllVisibleQuery($search);
+        }
+
         //On paramètre la pagination en précisant le nombre d'elements qu'on veut afficher par page
+
+        // appeler
         $list_users = $paginator->paginate(
             $users, // Requête contenant les données à paginer (les utilisateurs)
             $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page

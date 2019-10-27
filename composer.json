@@ -6,10 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "fzaninotto/faker": "^1.8",
-<<<<<<< HEAD
         "knplabs/knp-paginator-bundle": "^4.0",
-=======
->>>>>>> c26d3ee91f4e8392322b184044467292bbca43b5
         "sensio/framework-extra-bundle": "^5.4",
         "symfony/asset": "4.3.*",
         "symfony/browser-kit": "4.3.*",

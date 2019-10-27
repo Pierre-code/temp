@@ -44,23 +44,18 @@ class UserRepository extends ServiceEntityRepository
 
         if($search->getMinNote()){
             $query= $query
-                ->andWhere('user.note >= :'.$search->getMinNote());
+                ->andWhere('user.note >= :min_note')
+                ->setParameter('min_note', $search->getMinNote());
         }
-        //var_dump($query->getQuery());
+
         if($search->getMaxWeight()){
             $query= $query
-                ->andWhere('user.weight <=:'.$search->getMaxWeight());
-               // ->getQuery();
-               // ->getResult();
-
+                ->andWhere('user.weight <= :max_weight')
+                ->setParameter('max_weight', $search->getMaxWeight());
         }
-        //var_dump($query->getQuery());
        return $query->getQuery();
-        //$users = $query->getResult();
-       // var_dump($users);
-
-        //return $query->execute();
     }
+
     public function findVisibleQuery():QueryBuilder
     {
         return $this->createQueryBuilder('user');
