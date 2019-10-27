@@ -45,3 +45,4 @@ var unicons = require("unicons");
 // =============================================================================
 require('./heater.js');
 require('./planets.js');
+require('./javascript.js');
