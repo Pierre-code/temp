@@ -21,7 +21,7 @@ class UserSearchType extends AbstractType
                     'placeholder' =>'note minimale'
                 ]
             ])
-            ->add('max_poids', IntegerType::class,[
+            ->add('max_weight', IntegerType::class,[
                 'required' =>false,
                 'label' =>false,
                 'attr' =>[

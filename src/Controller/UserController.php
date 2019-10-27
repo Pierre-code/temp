@@ -33,10 +33,17 @@ class UserController extends AbstractController
        $form = $this->createForm(UserSearchType::class, $search);
        $form->handleRequest($request);
 
+       /* if ($form->isSubmitted() && $form->isValid()) {
+
+            $search = $form->getData();
+        }*/
+
         $users = $this->getDoctrine()
             ->getRepository(User::class)
             ->findAll();
+
         $this->userRepository->findAllVisibleQuery($search);
+        //var_dump($this->userRepository->findAllVisibleQuery($search));
         //On paramètre la pagination en précisant le nombre d'elements qu'on veut afficher par page
         $list_users = $paginator->paginate(
             $users, // Requête contenant les données à paginer (les utilisateurs)
@@ -52,6 +59,7 @@ class UserController extends AbstractController
             'users' => $list_users,
             'form' => $form->createView()
         ]);
+
 
     }
 

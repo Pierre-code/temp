@@ -2,36 +2,21 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\UserSearchRepository")
- */
+
+
 class UserSearch
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="integer")
+     * type="integer"
      */
     private $min_note;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Assert\Range(min =10, max =999)
+     * type="integer"
      */
-    private $max_note;
+    private $max_weight;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getMinNote(): ?int
     {
@@ -45,15 +30,23 @@ class UserSearch
         return $this;
     }
 
-    public function getMaxNote(): ?int
+    /**
+     * @return mixed
+     */
+    public function getMaxWeight()
     {
-        return $this->max_note;
+        return $this->max_weight;
     }
 
-    public function setMaxNote(int $max_note): self
+    /**
+     * @param mixed $max_weight
+     * @return UserSearch
+     */
+    public function setMaxWeight($max_weight)
     {
-        $this->max_note = $max_note;
-
+        $this->max_weight = $max_weight;
         return $this;
     }
+
+
 }

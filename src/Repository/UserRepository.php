@@ -9,7 +9,8 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
 use phpDocumentor\Reflection\Types\Integer;
 use Doctrine\ORM\QueryBuilder;
-
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 /**
@@ -34,28 +35,35 @@ class UserRepository extends ServiceEntityRepository
         return $user ? $user[0] : null;
     }
 
-    public function findVisibleQuery():QueryBuilder
-    {
-        return $this->createQueryBuilder('p');
-    }
+
 
     public function findAllVisibleQuery(UserSearch $search): Query
     {
        $query = $this->findVisibleQuery();
        //$users = $query->getResult();
 
-      /*  if($search->getMinNote()){
+        if($search->getMinNote()){
             $query= $query
-                ->andWhere('p.note <= :min_note')
-                ->setParameter('min_note',$search->getMinNote());
+                ->andWhere('user.note >= :'.$search->getMinNote());
         }
-        if($search->getMaxNote()){
+        //var_dump($query->getQuery());
+        if($search->getMaxWeight()){
             $query= $query
-                ->andWhere('p.note <= :max_note')
-                ->setParameter('max_note',$search->getMaxNote());
-        }*/
+                ->andWhere('user.weight <=:'.$search->getMaxWeight());
+               // ->getQuery();
+               // ->getResult();
 
-        return $query->getQuery();
+        }
+        //var_dump($query->getQuery());
+       return $query->getQuery();
+        //$users = $query->getResult();
+       // var_dump($users);
+
+        //return $query->execute();
+    }
+    public function findVisibleQuery():QueryBuilder
+    {
+        return $this->createQueryBuilder('user');
     }
 
     // /**
