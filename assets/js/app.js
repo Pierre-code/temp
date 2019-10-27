@@ -23,7 +23,6 @@ require('../sass/layout-elements/reassurances.scss');
 
 require('../sass/components/cards.scss');
 require('../sass/components/alerts.scss');
-require('../sass/components/filterForm.scss');
 
 
 // Pages
@@ -38,7 +37,6 @@ require('../sass/pages/integration-maquette.scss');
 const $ = require('jquery');
 // require popper.js ?
 require('bootstrap');
-var unicons = require("unicons");
 
 // =============================================================================
 // Require all js files

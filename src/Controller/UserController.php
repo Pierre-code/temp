@@ -30,37 +30,21 @@ class UserController extends AbstractController
     // Inclure le paramètre $paginator de type PaginatorInterface
     public function index(Request $request, PaginatorInterface $paginator):Response
     {
-       $search = new UserSearch();
-       $form = $this->createForm(UserSearchType::class, $search);
-       $form->handleRequest($request);
-
        // Récupérer tous les users ici dans une variable $users
-        $users = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->findAll();
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $search = $form->getData();
-            $users = $this->userRepository->findAllVisibleQuery($search);
-        }
 
         //On paramètre la pagination en précisant le nombre d'elements qu'on veut afficher par page
 
-        // appeler
-        $list_users = $paginator->paginate(
-            $users, // Requête contenant les données à paginer (les utilisateurs)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            6 // Nombre de résultats par page
-        );
+        // appeler la méthode paginate de $paginator
+        // En paramètres : La liste des utilisateurs, le numéro de la page ($request->query->getInt('page', 1)
+        // La limite à 6
 
-        // créer une entité qui va rechercher un utilisateur spécifique
-
+        // Envoyer le résultat de cette méthode à la vue
 
         return $this->render('user/list.html.twig', [
             'controller_name' => 'UserController',
-            'users' => $list_users,
-            'form' => $form->createView()
+            'users' => [
+                ["name" => "Remplacer ça par des vrais users, Carlos !"]
+            ],
         ]);
 
 
