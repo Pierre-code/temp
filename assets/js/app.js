@@ -1,10 +1,8 @@
 // SCSS
 require("../sass/app.scss");
 
-/// =============================================================================
-// REQURE ALL SCSS FILES
-//
-// L'ordre est important, merci de ne rien modifier sans l'accord des responsables front
+// =============================================================================
+// Require all scss files
 // =============================================================================
 
 // Bases
@@ -25,6 +23,7 @@ require('../sass/layout-elements/reassurances.scss');
 
 require('../sass/components/cards.scss');
 require('../sass/components/alerts.scss');
+require('../sass/components/filterForm.scss');
 
 
 // Pages

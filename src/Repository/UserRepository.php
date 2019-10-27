@@ -3,9 +3,15 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\UserSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
 use phpDocumentor\Reflection\Types\Integer;
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -27,6 +33,32 @@ class UserRepository extends ServiceEntityRepository
             ->setMaxResults(1)
             ->getResult();
         return $user ? $user[0] : null;
+    }
+
+
+
+    public function findAllVisibleQuery(UserSearch $search): Query
+    {
+       $query = $this->findVisibleQuery();
+       //$users = $query->getResult();
+
+        if($search->getMinNote()){
+            $query= $query
+                ->andWhere('user.note >= :min_note')
+                ->setParameter('min_note', $search->getMinNote());
+        }
+
+        if($search->getMaxWeight()){
+            $query= $query
+                ->andWhere('user.weight <= :max_weight')
+                ->setParameter('max_weight', $search->getMaxWeight());
+        }
+       return $query->getQuery();
+    }
+
+    public function findVisibleQuery():QueryBuilder
+    {
+        return $this->createQueryBuilder('user');
     }
 
     // /**

@@ -101,6 +101,11 @@ user_ship:
     controller: App\Controller\UserController::ship
     methods: [GET]
 
+user:
+    path: /user
+    controller: App\Controller\UserController::index
+    methods: [GET]
+
 #planet
 planet_index:
     path: /planet

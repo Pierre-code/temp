@@ -24,14 +24,12 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
     {
         // Nous utilisons des tableaux ici pour permettre à la boucle d'intégrer des noms particuliers plutôt que de
         // générer des données aléatoires. Cela nous sert pour avoir toujours les mêmes noms et les mêmes images.
-
         $shipNames = ['Le andré destroyer', 'Le Schtroumpf grognon', 'Richard Parker'];
         $shipImages = [
             '/images/ships/vaisseau_1.jpeg',
             '/images/ships/vaisseau_2.jpg',
             '/images/ships/vaisseau_3.jpg',
         ];
-
         // Nous créons 3 vaisseaux avec des données aléatoires et des données fixes
         for ($i = 0; $i < 3; $i++) {
             $ship = new Ship();
@@ -58,3 +56,4 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         return 1;
     }
 }
+

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <div class ="jumbotron">
+        <div class ="container">
+            {{form_start(form)}}
+            <div class ="form-row">
+                <div class ="col">
+                    Note minimale:{{ form_row(form.min_note) }}
+                </div>
+                <div class ="col">
+                    Poids maximal:{{ form_row(form.max_weight) }}
+                </div>
+                <div class ="col">
+
+                    <button class ="btn btn-primary">
+                        Rechercher
+                    </button>
+                </div>
+            </div>
+            {{form_end(form)}}
+        </div>
+    </div>
+    <div class ="cardAlign">
+        {% for user in users %}
+                <div class="col-sm-4">
+                    <div class="card" style="align-items: center">
+                        <img class="card-img-top" src="{{asset('images/bad.jpg')}}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Nom: {{ user.name }} </p>
+                            <p class="card-text"> Note:  {{ user.note }} </p>
+                            <p class="card-text"> Poids:  {{ user.weight }} </p>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+    <div class ="paginationContainer">
+        <div class ="pagination">
+            {{ knp_pagination_render(users) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
