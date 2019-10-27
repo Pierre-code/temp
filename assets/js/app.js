@@ -31,6 +31,7 @@ require('../sass/components/alerts.scss');
 require('../sass/pages/user_ship_page.scss');
 require('../sass/pages/home.scss');
 require('../sass/pages/ship_edit.scss');
+require('../sass/pages/integration-maquette.scss');
 
 // =============================================================================
 // Require dependencies
