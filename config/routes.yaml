@@ -128,3 +128,9 @@ planets_list:
     path: /planets_list
     controller: App\Controller\PlanetController::list
     methods: [GET]
+
+
+javascript_index:
+    path: /javascript
+    controller: App\Controller\JavaScriptController::index
+    methods: [GET]
