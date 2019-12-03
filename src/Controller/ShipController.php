@@ -75,7 +75,7 @@ class ShipController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->flush();
-            return $this->redirectToRoute('user_ship');
+            // Utiliser la méthode redirectToRoute vers user_ship en cas de succès
         }
 
         // Utiliser la méthode addFlash() pour afficher un message de succès.
