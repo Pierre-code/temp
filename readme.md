@@ -4,6 +4,11 @@
 
 # Bienvenue sur le super TP Symfony 4 !  
 
+[Lien du guide d'installation](https://gitlab.com/Chatmalow/sandbox_simgame/wikis/1-Installation-des-programmes)
+
+[Lien des exercices](https://drive.google.com/open?id=1cOpiTCgyjkCNqoxQc2oewnzcw7HumQeq)
+
+
 Ouais, il fallait un titre accrocheur pour capter votre attention tout ça tout ça... N’empêche qu'on vous à préparer un super projet pour que vous surviviez au SpeedCoding (Ça devrait bien se passer, en théorie). 
  
 ## Pourquoi le TP ?
