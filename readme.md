@@ -1,7 +1,6 @@
 # Space Coder Sandbox
 
 ![N|Solid](https://cdn.vox-cdn.com/uploads/chorus_image/image/57339537/Concept_citcon2015_5.0.jpg)
-
 # Bienvenue sur le super TP Symfony 4 !  
 
 Ouais, il fallait un titre accrocheur pour capter votre attention tout ça tout ça... N’empêche qu'on vous à préparer un super projet pour que vous surviviez au SpeedCoding (Ça devrait bien se passer, en théorie). 
@@ -73,3 +72,7 @@ Toute la suite Jetbrains est gratuite pour les étudiants. https://www.jetbrains
 
 Gardez en tête l'objectif : Valider les compétences. Bon courage !
    
+# Env de dev
+Pour **MAC OS** lancer ce script dans votre bash `./env/fixmacos.sh`
+
+[Installer environnement de dev Windows](env/windows_dev_env.md)

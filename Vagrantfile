@@ -6,8 +6,12 @@ require 'yaml'
 
 VAGRANTFILE_API_VERSION ||= "2"
 confDir = $confDir ||= File.expand_path("vendor/laravel/homestead", File.dirname(__FILE__))
+homesteadYamlPath = File.expand_path("env/Homestead-unix.yaml", File.dirname(__FILE__))
 
-homesteadYamlPath = File.expand_path("Homestead.yaml", File.dirname(__FILE__))
+if Vagrant::Util::Platform.windows? then
+    homesteadYamlPath = File.expand_path("env/Homestead-win.yaml", File.dirname(__FILE__))
+end
+
 homesteadJsonPath = File.expand_path("Homestead.json", File.dirname(__FILE__))
 afterScriptPath = "after.sh"
 customizationScriptPath = "user-customizations.sh"
@@ -39,7 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         config.vm.provision "shell", path: afterScriptPath, privileged: false, keep_color: true
     end
 
-    if File.exist? customizationScriptPath then
+    if File.exist? customizationScriptPath and Vagrant::Util::Platform.windows? != true  then
         config.vm.provision "shell", path: customizationScriptPath, privileged: false, keep_color: true
     end
 
