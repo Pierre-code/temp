@@ -73,6 +73,4 @@ Toute la suite Jetbrains est gratuite pour les étudiants. https://www.jetbrains
 Gardez en tête l'objectif : Valider les compétences. Bon courage !
    
 # Env de dev
-Pour **MAC OS** lancer ce script dans votre bash `./env/fixmacos.sh`
-
-[Installer environnement de dev Windows](env/windows_dev_env.md)
+[Installer son environnement de dev](env/dev_env.md)

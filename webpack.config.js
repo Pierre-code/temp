@@ -20,7 +20,6 @@ Encore
 
   // show OS notifications when builds finish/fail
   .enableBuildNotifications()
-
   // create hashed filenames (e.g. app.abc123.css)
   .enableVersioning(Encore.isProduction())
 
@@ -35,7 +34,7 @@ Encore
 const config = Encore.getWebpackConfig();
 
 // with NFS wait before build chunks
-moconfig.watchOptions.poll = true;
+config.watchOptions.poll = true;
 
 module.exports = config;
 

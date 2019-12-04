@@ -23,7 +23,7 @@
   },
   "scripts": {
     "watch": "encore dev --watch",
-    "dev": "encore dev env",
+    "dev": "encore dev",
     "production": "encore production"
   },
   "browserslist": [
