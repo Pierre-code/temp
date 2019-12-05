@@ -94,7 +94,7 @@ class UserController extends AbstractController
             );
         }
 
-        // Récupérer tous les canons avec la méthode $ship->getCanons();
+        // Récupérer tous les canons avec la méthode $ship->getCanonns();
 
         // On affiche la vue ship.html.twig
         // On lui envoie les paramètres 'controlleur_name', 'ship', 'user'. On peut envoyer tout ce qu'on veut !
