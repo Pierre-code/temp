@@ -65,7 +65,7 @@ Nous mettrons également en place un suivi individuel pour rester à disposition
 
 ## Installer les outils et récupérer le projet 
   
-Cela peut paraitre stupide mais la première étape consiste à installer tous nos outils pour le developpement. Cette étape est décrite dans le [wiki Git du TP ici](https://gitlab.com/Chatmalow/sandbox_simgame/wikis/Installation).
+Cela peut paraitre stupide mais la première étape consiste à installer tous nos outils pour le developpement. Cette étape est décrite dans le [wiki Git du TP ici](https://gitlab.com/Chatmalow/sandbox_simgame/wikis/1-Installation-des-programmes).
 
 ## Un mot sur l'IDE PhpStorm
 Le choix de votre IDE est certainement un des plus important pour notre cadre de travail.
