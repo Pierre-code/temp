@@ -1,6 +1,8 @@
 ###> PhpStorm IDE ###
 /.idea/
 /.vscode/
+.git/
+.DS_Store
 ###< PhpStorm IDE ###
 
 ###> symfony/framework-bundle ###
@@ -25,4 +27,4 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-Homestead.yaml
+*.lock
