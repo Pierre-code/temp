@@ -1,5 +1,4 @@
 var Encore = require('@symfony/webpack-encore');
-
 Encore
 // the project directory where all compiled assets will be stored
   .setOutputPath('public/build/')
@@ -21,9 +20,8 @@ Encore
 
   // show OS notifications when builds finish/fail
   .enableBuildNotifications()
-
   // create hashed filenames (e.g. app.abc123.css)
-   .enableVersioning()
+  .enableVersioning(Encore.isProduction())
 
   // allow sass/scss files to be processed
   .enableSassLoader()
@@ -32,6 +30,11 @@ Encore
   // Automatically get his config in postcss.config.js file at root
   .enablePostCssLoader()
 ;
+// Use polling instead of inotify
+const config = Encore.getWebpackConfig();
 
-// export the final configuration
-module.exports = Encore.getWebpackConfig();
+// with NFS wait before build chunks
+config.watchOptions.poll = true;
+
+module.exports = config;
+

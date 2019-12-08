@@ -1,7 +1,6 @@
 # Space Coder Sandbox
 
 ![N|Solid](https://cdn.vox-cdn.com/uploads/chorus_image/image/57339537/Concept_citcon2015_5.0.jpg)
-
 # Bienvenue sur le super TP Symfony 4 !  
 
 [Lien du guide d'installation](https://gitlab.com/Chatmalow/sandbox_simgame/wikis/1-Installation-des-programmes)
@@ -78,3 +77,5 @@ Toute la suite Jetbrains est gratuite pour les étudiants. https://www.jetbrains
 
 Gardez en tête l'objectif : Valider les compétences. Bon courage !
    
+# Env de dev
+[Installer son environnement de dev](env/dev_env.md)
