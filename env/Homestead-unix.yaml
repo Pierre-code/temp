@@ -10,12 +10,16 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
-    - map: ~/Documents/sandbox_simgame
-      to: /home/vagrant/code
+    - map: .
+      to: /home/vagrant/www
+      type: "nfs"
+      nfs_version: 4
+      mount_options: ['rw','actimeo=2']
+      nfs_udp: false
 
 sites:
-    - map: sandbox_simgame.test
-      to: /home/vagrant/code/public
+    - map: ./public
+      to: /home/vagrant/www/public
 
 databases:
     - homestead
